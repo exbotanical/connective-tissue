@@ -1,6 +1,6 @@
 {
   "name": "connective-tissue",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "",
   "main": "./dist/connective-tissue.cjs.js",
   "browser": "./dist/connective-tissue.umd.min.js",
@@ -69,12 +69,16 @@
     "rimraf": "3.0.2",
     "rollup": "2.40.0",
     "rollup-plugin-terser": "7.0.2",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^17.4.3",
     "tape": "5.2.2"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatthewZito/connective-tissue.git"
   }
 }
