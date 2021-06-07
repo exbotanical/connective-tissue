@@ -1,7 +1,7 @@
 import test from 'tape';
 
 import { CircularDoublyLinkedList } from '../lib';
-import { Node } from '../lib/node';
+import { Node } from '../lib';
 
 const subject = 'The circular doubly linked list';
 const init = () => new CircularDoublyLinkedList();
