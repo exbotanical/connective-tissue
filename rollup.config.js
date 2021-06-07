@@ -14,7 +14,7 @@ export default [
     output: {
       file: pkg.main,
       format: 'cjs',
-      exports: 'default'
+      exports: 'named'
     },
     plugins: [
       nodeResolve(),
