@@ -1,6 +1,6 @@
 {
   "name": "connective-tissue",
-  "version": "0.0.0-development",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/connective-tissue.cjs.js",
   "browser": "./dist/connective-tissue.umd.min.js",
