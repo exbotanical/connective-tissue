@@ -95,7 +95,11 @@ test(`${subject} maintains its integrity as a multi-node list`, t => {
 	l.remove(n2);
 	n2 = l.insertAfter(2, n3); // insert after tail
 	tryFail(l, [n1, n4, n3, n2]);
+
 	l.remove(n2);
+	const x = l.pop();
+	tryFail(l, [n1, n4]);
+	t.equals(n3, x);
 
 	t.end();
 });
@@ -189,7 +193,7 @@ test(`${subject} maintains integrity across varietied removals`, t => {
 	t.end();
 });
 
-test(`${subject}`, t => {
+test(`${subject} should not be modified when invoking operations upon non-member nodes`, t => {
 	const l1 = init();
 	const l2 = init();
 
@@ -347,7 +351,7 @@ function checkListRefs (list, nodes) {
 
 		if (idx > 0) prev = nodes[idx - 1];
 
-		if (node.prev != prev) throw `a) ${idx}Have ${node.prev}, want ${prev}`;
+		if (node.prev != prev) throw `a) Have ${node.prev}, want ${prev}`;
 
 		if (idx > 0) {
 			if (list.prev(node) != prev) throw `b) Have ${list.prev(node)}, want ${prev}`;

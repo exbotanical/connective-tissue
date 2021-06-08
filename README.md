@@ -42,3 +42,24 @@ import { CircularLinkedList } from 'connective-tissue';
 ### Circular Doubly Linked List
 
 The Circular Doubly Linked List is internally implemented as a ring, such that the sentinel terminator is both the next node of the tail and the previous node of the head.
+
+size
+next
+prev
+head
+tail
+insert
+remove
+pop
+move
+pushFront
+pushBack
+insertBefore
+insertAfter
+moveToFront
+moveToBack
+moveBefore
+moveAfter
+insertValue
+pushBackList
+pushFrontList
