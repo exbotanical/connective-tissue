@@ -1,7 +1,7 @@
 import test from 'tape';
 
 import { CircularSinglyLinkedList } from '../lib';
-import { ForwardNode } from '../lib/Node';
+import { ForwardNode } from '../lib/atomic';
 
 const subject = 'The circular singly linked list';
 const init = () => new CircularSinglyLinkedList();

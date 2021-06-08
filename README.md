@@ -63,3 +63,28 @@ moveAfter
 insertValue
 pushBackList
 pushFrontList
+
+### Circular Singly Linked List
+
+The Circular Singly Linked List does not use sentinels, instead implementing a pointer from the tail to the head. If the list contains a single node only, the head is a single-value ring that points to itself.
+
+size
+next
+prev
+head
+tail
+insert
+remove
+pop
+move
+pushFront
+pushBack
+insertBefore
+insertAfter
+moveToFront
+moveToBack
+moveBefore
+moveAfter
+insertValue
+pushBackList
+pushFrontList

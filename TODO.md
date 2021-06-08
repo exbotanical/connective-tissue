@@ -1,6 +1,7 @@
 # TODOs
 
 - [ ] enforce node instance type if used manually in a given list (e.g. no fwd node in dbl circular)
+- [ ] test noops in dbl circ list
 
 ```js
 console.log(getAllFuncs(l))
