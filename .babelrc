@@ -1,8 +1,13 @@
 {
   "presets": [
-    "@babel/preset-env"
+    ["@babel/preset-env", {
+      "shippedProposals": true
+    }]
   ],
   "plugins": [
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": false
+    }],
     ["@babel/plugin-transform-runtime", {
       "regenerator": true
     }]
