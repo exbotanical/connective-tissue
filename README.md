@@ -6,10 +6,10 @@
 
 `connective-tissue` is a collection of linked list and ring data structures implemented in and for JavaScript. The structures in this library follow the specifications of their classical counterparts; they are well-tested and optimal implementations of:
 
-- **singly linked list**
 - **doubly linked list** *
 - **header linked list** *
-- **circular singly linked list**
+- **singly linked list**
+- **circular linked list**
 - **circular doubly linked list**
 
 *work in progress
@@ -29,6 +29,18 @@ yarn add connective-tissue
 
 `connective-tissue` currently supports UMD, CommonJS (node versions >= 10), and ESM build-targets
 
+Commonjs:
+
+```js
+const { CircularDoublyLinkedList } = require('connective-tissue');
+```
+
+ESM:
+
+```js
+import { CircularDoublyLinkedList } from 'connective-tissue';
+```
+
 ## API Reference
 
 # Modules
@@ -44,6 +56,8 @@ yarn add connective-tissue
 <dt><a href="#CircularDoublyLinkedList">CircularDoublyLinkedList</a></dt>
 <dd></dd>
 <dt><a href="#CircularSinglyLinkedList">CircularSinglyLinkedList</a></dt>
+<dd></dd>
+<dt><a href="#SinglyLinkedList">SinglyLinkedList</a></dt>
 <dd></dd>
 </dl>
 
@@ -69,13 +83,13 @@ yarn add connective-tissue
 
 ### new Node(value)
 > Implements a bi-directional node
->
+> 
 > `Node` implements as a member a pointer to the list to which it belongs
 
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
+| value | <code>any</code> | 
 
 
 <br><a name="module_Atomics.ForwardNode"></a>
@@ -86,13 +100,13 @@ yarn add connective-tissue
 
 ### new ForwardNode(value)
 > Implements a uni-directional (forward) node
->
+> 
 > `ForwardNode` implements as a member a pointer to the list to which it belongs
 
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
+| value | <code>any</code> | 
 
 
 <br><a name="module_Atomics.Sentinel"></a>
@@ -155,7 +169,7 @@ yarn add connective-tissue
 
 | Type |
 | --- |
-| <code>Sentinel</code> |
+| <code>Sentinel</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+length"></a>
@@ -167,7 +181,7 @@ yarn add connective-tissue
 
 | Type |
 | --- |
-| <code>number</code> |
+| <code>number</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+size"></a>
@@ -184,7 +198,7 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
+| node | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+prev"></a>
@@ -195,7 +209,7 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
+| node | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+head"></a>
@@ -218,8 +232,8 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
-| at | <code>Node</code> |
+| node | <code>Node</code> | 
+| at | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+remove"></a>
@@ -227,11 +241,11 @@ yarn add connective-tissue
 ## circularDoublyLinkedList.remove(node) ⇒ <code>Node</code>
 > Remove a given node from the list
 
-**Returns**: <code>Node</code> - The removed node
+**Returns**: <code>Node</code> - The removed node  
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
+| node | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+pop"></a>
@@ -239,11 +253,11 @@ yarn add connective-tissue
 ## circularDoublyLinkedList.pop(node) ⇒ <code>Node</code>
 > Remove the last node from the list
 
-**Returns**: <code>Node</code> - The removed node
+**Returns**: <code>Node</code> - The removed node  
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
+| node | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+move"></a>
@@ -254,8 +268,8 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
-| at | <code>Node</code> |
+| node | <code>Node</code> | 
+| at | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+pushFront"></a>
@@ -266,7 +280,7 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
+| value | <code>any</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+pushBack"></a>
@@ -277,101 +291,101 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
+| value | <code>any</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+insertBefore"></a>
 
 ## circularDoublyLinkedList.insertBefore(value, mark) ⇒ <code>Node</code>
 > Insert a new node with value `value` immediately before `mark`
->
+> 
 > If `mark` is not an element of the list, the list is not modified
->
+> 
 > `mark` must not be null
 
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
-| mark | <code>Node</code> |
+| value | <code>any</code> | 
+| mark | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+insertAfter"></a>
 
 ## circularDoublyLinkedList.insertAfter(value, mark) ⇒ <code>Node</code>
 > Insert a new node with value `value` immediately after `mark`
->
+> 
 > If `mark` is not an element of the list, the list is not modified
->
+> 
 > `mark` must not be null
 
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
-| mark | <code>Node</code> |
+| value | <code>any</code> | 
+| mark | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+moveToFront"></a>
 
 ## circularDoublyLinkedList.moveToFront(node) ⇒ <code>Node</code>
 > Move a node to the front of the list
->
+> 
 > If the given node is not an element of the list, the list is not modified
->
+> 
 > The given node must not be null
 
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
+| node | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+moveToBack"></a>
 
 ## circularDoublyLinkedList.moveToBack(node) ⇒ <code>Node</code>
 > Move a node to the back of the list
->
+> 
 > If the given node is not an element of the list, the list is not modified
->
+> 
 > The given node must not be null
 
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
+| node | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+moveBefore"></a>
 
 ## circularDoublyLinkedList.moveBefore(node, mark) ⇒ <code>Node</code>
 > Move a given node to its new position before `mark`
->
+> 
 > If either the given node or mark are not an element of the list, or node == mark, the list is not modified
->
+> 
 > Both the node and mark must not be null
 
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
-| mark | <code>Node</code> |
+| node | <code>Node</code> | 
+| mark | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+moveAfter"></a>
 
 ## circularDoublyLinkedList.moveAfter(node, mark) ⇒ <code>Node</code>
 > Move a given node to its new position after `mark`
->
+> 
 > If either the given node or mark are not an element of the list, or node == mark, the list is not modified
->
+> 
 > Both the node and mark must not be null
 
 
 | Param | Type |
 | --- | --- |
-| node | <code>Node</code> |
-| mark | <code>Node</code> |
+| node | <code>Node</code> | 
+| mark | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+insertValue"></a>
@@ -382,34 +396,34 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
-| at | <code>Node</code> |
+| value | <code>any</code> | 
+| at | <code>Node</code> | 
 
 
 <br><a name="CircularDoublyLinkedList+pushBackList"></a>
 
 ## circularDoublyLinkedList.pushBackList(other)
 > Insert a copy of another list at the back of the caller list
->
+> 
 > The lists may be the same, but must not be null
 
 
 | Param | Type |
 | --- | --- |
-| other | [<code>CircularDoublyLinkedList</code>](#CircularDoublyLinkedList) |
+| other | [<code>CircularDoublyLinkedList</code>](#CircularDoublyLinkedList) | 
 
 
 <br><a name="CircularDoublyLinkedList+pushFrontList"></a>
 
 ## circularDoublyLinkedList.pushFrontList(other)
 > Insert a copy of another list at the front of the caller list
->
+> 
 > The lists may be the same, but must not be null
 
 
 | Param | Type |
 | --- | --- |
-| other | [<code>CircularDoublyLinkedList</code>](#CircularDoublyLinkedList) |
+| other | [<code>CircularDoublyLinkedList</code>](#CircularDoublyLinkedList) | 
 
 
 <br><a name="CircularDoublyLinkedList.create"></a>
@@ -431,6 +445,7 @@ yarn add connective-tissue
         * [.next(node)](#CircularSinglyLinkedList+next) ⇒ <code>Node</code> \| <code>null</code>
         * [.prev(node)](#CircularSinglyLinkedList+prev) ⇒ <code>Node</code> \| <code>null</code>
         * [.remove(node)](#CircularSinglyLinkedList+remove) ⇒ <code>Node</code> \| <code>null</code>
+        * [.removeHead()](#CircularSinglyLinkedList+removeHead) ⇒ <code>ForwardNode</code> \| <code>null</code>
         * [.pop(node)](#CircularSinglyLinkedList+pop) ⇒ <code>Node</code> \| <code>null</code>
         * [.moveAfter(node, mark)](#CircularSinglyLinkedList+moveAfter) ⇒ <code>ForwardNode</code>
         * [.moveBefore(node, mark)](#CircularSinglyLinkedList+moveBefore) ⇒ <code>ForwardNode</code>
@@ -447,7 +462,7 @@ yarn add connective-tissue
 <br><a name="new_CircularSinglyLinkedList_new"></a>
 
 ## new CircularSinglyLinkedList()
-> Implements a circular singular (linear) linked list
+> Implements a circular singly (linear) linked list
 
 
 <br><a name="CircularSinglyLinkedList+head"></a>
@@ -459,7 +474,7 @@ yarn add connective-tissue
 
 | Type |
 | --- |
-| <code>ForwardNode</code> |
+| <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+length"></a>
@@ -471,7 +486,7 @@ yarn add connective-tissue
 
 | Type |
 | --- |
-| <code>number</code> |
+| <code>number</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+size"></a>
@@ -488,7 +503,7 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| node | <code>ForwardNode</code> |
+| node | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+prev"></a>
@@ -499,7 +514,7 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| node | <code>ForwardNode</code> |
+| node | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+remove"></a>
@@ -507,11 +522,17 @@ yarn add connective-tissue
 ## circularSinglyLinkedList.remove(node) ⇒ <code>Node</code> \| <code>null</code>
 > Remove a given node from the list
 
-**Returns**: <code>Node</code> \| <code>null</code> - The removed node
+**Returns**: <code>Node</code> \| <code>null</code> - The removed node  
 
 | Param | Type |
 | --- | --- |
-| node | <code>ForwardNode</code> |
+| node | <code>ForwardNode</code> | 
+
+
+<br><a name="CircularSinglyLinkedList+removeHead"></a>
+
+## circularSinglyLinkedList.removeHead() ⇒ <code>ForwardNode</code> \| <code>null</code>
+> Excise the head of the list and return it; if the head is not extant, return null
 
 
 <br><a name="CircularSinglyLinkedList+pop"></a>
@@ -519,43 +540,43 @@ yarn add connective-tissue
 ## circularSinglyLinkedList.pop(node) ⇒ <code>Node</code> \| <code>null</code>
 > Remove the last node from the list
 
-**Returns**: <code>Node</code> \| <code>null</code> - The removed node
+**Returns**: <code>Node</code> \| <code>null</code> - The removed node  
 
 | Param | Type |
 | --- | --- |
-| node | <code>ForwardNode</code> |
+| node | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+moveAfter"></a>
 
 ## circularSinglyLinkedList.moveAfter(node, mark) ⇒ <code>ForwardNode</code>
 > Move a given node to its new position after `mark`
->
+> 
 > If either the given node or mark are not an element of the list; node == mark; or mark.next == node, the list is not modified
->
+> 
 > Both the node and mark must not be null
 
 
 | Param | Type |
 | --- | --- |
-| node | <code>ForwardNode</code> |
-| mark | <code>ForwardNode</code> |
+| node | <code>ForwardNode</code> | 
+| mark | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+moveBefore"></a>
 
 ## circularSinglyLinkedList.moveBefore(node, mark) ⇒ <code>ForwardNode</code>
 > Move a given node to its new position before `mark`
->
+> 
 > If either the given node or mark are not an element of the list; node == mark; or node.next == mark, the list is not modified
->
+> 
 > Both the node and mark must not be null
 
 
 | Param | Type |
 | --- | --- |
-| node | <code>ForwardNode</code> |
-| mark | <code>ForwardNode</code> |
+| node | <code>ForwardNode</code> | 
+| mark | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+pushFront"></a>
@@ -566,7 +587,7 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
+| value | <code>any</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+pushBack"></a>
@@ -577,68 +598,211 @@ yarn add connective-tissue
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
+| value | <code>any</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+insertAfter"></a>
 
 ## circularSinglyLinkedList.insertAfter(value, mark) ⇒ <code>ForwardNode</code> \| <code>null</code>
 > Insert a new node with value `value` immediately after `mark`
->
+> 
 > If `mark` is not an element of the list, the list is not modified
->
+> 
 > `mark` must not be null
 
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
-| mark | <code>ForwardNode</code> |
+| value | <code>any</code> | 
+| mark | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+insertBefore"></a>
 
 ## circularSinglyLinkedList.insertBefore(value, mark) ⇒ <code>ForwardNode</code> \| <code>null</code>
 > Insert a new node with value `value` immediately before `mark`
->
+> 
 > If `mark` is not an element of the list, the list is not modified
->
+> 
 > `mark` must not be null
 
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> |
-| mark | <code>ForwardNode</code> |
+| value | <code>any</code> | 
+| mark | <code>ForwardNode</code> | 
 
 
 <br><a name="CircularSinglyLinkedList+pushBackList"></a>
 
 ## circularSinglyLinkedList.pushBackList(other)
 > Insert a copy of another list at the back of the caller list
->
+> 
 > The lists may be the same, but must not be null
 
 
 | Param | Type |
 | --- | --- |
-| other | [<code>CircularSinglyLinkedList</code>](#CircularSinglyLinkedList) |
+| other | [<code>CircularSinglyLinkedList</code>](#CircularSinglyLinkedList) | 
 
 
 <br><a name="CircularSinglyLinkedList+pushFrontList"></a>
 
 ## circularSinglyLinkedList.pushFrontList(other)
 > Insert a copy of another list at the front of the caller list
->
+> 
 > The lists may be the same, but must not be null
 
 
 | Param | Type |
 | --- | --- |
-| other | [<code>CircularSinglyLinkedList</code>](#CircularSinglyLinkedList) |
+| other | [<code>CircularSinglyLinkedList</code>](#CircularSinglyLinkedList) | 
 
 
 <br><a name="CircularSinglyLinkedList.create"></a>
 
 ## CircularSinglyLinkedList.create() ⇒ [<code>CircularSinglyLinkedList</code>](#CircularSinglyLinkedList)
 > Instantiate an empty circular singly linked list
+
+
+<br><a name="SinglyLinkedList"></a>
+
+# SinglyLinkedList
+
+* [SinglyLinkedList](#SinglyLinkedList)
+    * [new SinglyLinkedList()](#new_SinglyLinkedList_new)
+    * _instance_
+        * [.head](#SinglyLinkedList+head)
+        * [.length](#SinglyLinkedList+length)
+        * [.size()](#SinglyLinkedList+size) ⇒ <code>number</code>
+        * [.next(node)](#SinglyLinkedList+next) ⇒ <code>Node</code> \| <code>null</code>
+        * [.pushFront(value)](#SinglyLinkedList+pushFront) ⇒ <code>ForwardNode</code>
+        * [.pushBack(value)](#SinglyLinkedList+pushBack) ⇒ <code>ForwardNode</code>
+        * [.insertAfter(value, mark)](#SinglyLinkedList+insertAfter) ⇒ <code>ForwardNode</code> \| <code>null</code>
+        * [.removeHead()](#SinglyLinkedList+removeHead) ⇒ <code>ForwardNode</code> \| <code>null</code>
+        * [.pop(node)](#SinglyLinkedList+pop) ⇒ <code>Node</code> \| <code>null</code>
+        * [.remove(node)](#SinglyLinkedList+remove) ⇒ <code>Node</code> \| <code>null</code>
+    * _static_
+        * [.create()](#SinglyLinkedList.create) ⇒ [<code>SinglyLinkedList</code>](#SinglyLinkedList)
+
+
+<br><a name="new_SinglyLinkedList_new"></a>
+
+## new SinglyLinkedList()
+> Implements a singly linked list
+
+
+<br><a name="SinglyLinkedList+head"></a>
+
+## singlyLinkedList.head
+> The head node
+
+**Properties**
+
+| Type |
+| --- |
+| <code>ForwardNode</code> | 
+
+
+<br><a name="SinglyLinkedList+length"></a>
+
+## singlyLinkedList.length
+> The current size of the list
+
+**Properties**
+
+| Type |
+| --- |
+| <code>number</code> | 
+
+
+<br><a name="SinglyLinkedList+size"></a>
+
+## singlyLinkedList.size() ⇒ <code>number</code>
+> The current size of the list
+
+
+<br><a name="SinglyLinkedList+next"></a>
+
+## singlyLinkedList.next(node) ⇒ <code>Node</code> \| <code>null</code>
+> Returns the next list node, if extant; else, null
+
+
+| Param | Type |
+| --- | --- |
+| node | <code>ForwardNode</code> | 
+
+
+<br><a name="SinglyLinkedList+pushFront"></a>
+
+## singlyLinkedList.pushFront(value) ⇒ <code>ForwardNode</code>
+> Push a new node with value `value` to the front of the list
+
+
+| Param | Type |
+| --- | --- |
+| value | <code>any</code> | 
+
+
+<br><a name="SinglyLinkedList+pushBack"></a>
+
+## singlyLinkedList.pushBack(value) ⇒ <code>ForwardNode</code>
+> Push a new node with value `value` to the back of the list
+
+
+| Param | Type |
+| --- | --- |
+| value | <code>any</code> | 
+
+
+<br><a name="SinglyLinkedList+insertAfter"></a>
+
+## singlyLinkedList.insertAfter(value, mark) ⇒ <code>ForwardNode</code> \| <code>null</code>
+> Insert a new node with value `value` immediately after `mark`
+> 
+> If `mark` is not an element of the list, the list is not modified
+> 
+> `mark` must not be null
+
+
+| Param | Type |
+| --- | --- |
+| value | <code>any</code> | 
+| mark | <code>ForwardNode</code> | 
+
+
+<br><a name="SinglyLinkedList+removeHead"></a>
+
+## singlyLinkedList.removeHead() ⇒ <code>ForwardNode</code> \| <code>null</code>
+> Excise the head of the list and return it; if the head is not extant, return null
+
+
+<br><a name="SinglyLinkedList+pop"></a>
+
+## singlyLinkedList.pop(node) ⇒ <code>Node</code> \| <code>null</code>
+> Remove the last node from the list
+
+**Returns**: <code>Node</code> \| <code>null</code> - The removed node  
+
+| Param | Type |
+| --- | --- |
+| node | <code>ForwardNode</code> | 
+
+
+<br><a name="SinglyLinkedList+remove"></a>
+
+## singlyLinkedList.remove(node) ⇒ <code>Node</code> \| <code>null</code>
+> Remove a given node from the list
+
+**Returns**: <code>Node</code> \| <code>null</code> - The removed node  
+
+| Param | Type |
+| --- | --- |
+| node | <code>ForwardNode</code> | 
+
+
+<br><a name="SinglyLinkedList.create"></a>
+
+## SinglyLinkedList.create() ⇒ [<code>SinglyLinkedList</code>](#SinglyLinkedList)
+> Instantiate an empty singly linked list
+
