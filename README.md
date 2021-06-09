@@ -6,10 +6,10 @@
 
 `connective-tissue` is a collection of linked list and ring data structures implemented in and for JavaScript. The structures in this library follow the specifications of their classical counterparts; they are well-tested and optimal implementations of:
 
-- **singly linked list** *
-- **circular linked list** *
+- **singly linked list**
 - **doubly linked list** *
 - **header linked list** *
+- **circular singly linked list**
 - **circular doubly linked list**
 
 *work in progress

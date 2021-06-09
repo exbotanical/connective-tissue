@@ -1,10 +1,20 @@
 import test from 'tape';
 
 import { CircularSinglyLinkedList } from '../lib';
-import { ForwardNode } from '../lib/atomic';
+import { ForwardNode } from '../lib/Atomics';
 
 const subject = 'The circular singly linked list';
 const init = () => new CircularSinglyLinkedList();
+
+const refHelper = t => (...args) => {
+	try { checkListRefs(...args); }
+	catch (msg) { t.fail(msg); }
+};
+
+const orderHelper = t => (l, ...v) => {
+	try { checkList(l, ...v); }
+	catch (msg) { t.fail(msg); }
+};
 
 test(`${subject} (pushBack) should insert a node as the head when the list is empty`, t => {
 	const l = init();
@@ -77,10 +87,7 @@ test(`${subject} returns head and tail`, t => {
 });
 
 test(`${subject} maintains its integrity as a multi-node list`, t => {
-	const tryFail = (t => (...args) => {
-		try { checkListRefs(...args); }
-		catch (msg) { t.fail(msg); }
-	})(t);
+	const tryFail = refHelper(t);
 
 	const l = init();
 
@@ -153,10 +160,7 @@ test(`${subject} maintains its integrity as a multi-node list`, t => {
 });
 
 test(`${subject} should be iterable`, t => {
-	const tryFail = (t => (...args) => {
-		try { checkListRefs(...args); }
-		catch (msg) { t.fail(msg); }
-	})(t);
+	const tryFail = refHelper(t);
 
 	const n1 = 5,
 				n2 = 6,
@@ -193,6 +197,8 @@ test(`${subject} should be iterable`, t => {
 });
 
 test(`${subject} should be extensible`, t => {
+	const tryFail = orderHelper(t);
+
 	const l1 = init();
 	const l2 = init();
 	const l3 = init();
@@ -206,28 +212,25 @@ test(`${subject} should be extensible`, t => {
 	l2.pushBack(5);
 
 	l3.pushBackList(l1); // merge into an empty list
-	checkList(l3, [1, 2, 3]);
+	tryFail(l3, [1, 2, 3]);
 	t.equals(l3.size(), l1.size())
 
 	l3.pushBackList(l2);
-	checkList(l3, [1, 2, 3, 4, 5]);
+	tryFail(l3, [1, 2, 3, 4, 5]);
 
 	l4.pushFrontList(l2); // merge into an empty list
-	checkList(l4, [4, 5]);
+	tryFail(l4, [4, 5]);
 
 	l4.pushFrontList(l1);
-	checkList(l4, [1, 2, 3, 4, 5]);
+	tryFail(l4, [1, 2, 3, 4, 5]);
 
-	checkList(l1, [1, 2, 3]);
-	checkList(l2, [4, 5]);
+	tryFail(l1, [1, 2, 3]);
+	tryFail(l2, [4, 5]);
 	t.end();
 });
 
 test(`${subject} maintains integrity across varietied removals`, t => {
-	const tryFail = (t => (...args) => {
-		try { checkListRefs(...args); }
-		catch (msg) { t.fail(msg); }
-	})(t);
+	const tryFail = refHelper(t);
 
 	const l = init();
 
@@ -272,10 +275,7 @@ test(`${subject} should not be modified when invoking operations upon non-member
 });
 
 test(`${subject} should maintain integrity across varietied moves`, t => {
-	const tryFail = (t => (...args) => {
-		try { checkListRefs(...args); }
-		catch (msg) { t.fail(msg); }
-	})(t);
+	const tryFail = refHelper(t);
 
 	const l = init();
 
@@ -327,30 +327,36 @@ test(`${subject} should accommodate static initialization`, t => {
 });
 
 test(`${subject} is not modified when invoking 'insertBefore' with a mark that is not a node thereof` , t => {
+	const tryFail = orderHelper(t);
+
 	const l = init();
 
 	l.pushBack(1);
 	l.pushBack(2);
 	l.pushBack(3);
 	l.insertBefore(1, new ForwardNode(9));
-	checkList(l, [1, 2, 3]);
+	tryFail(l, [1, 2, 3]);
 
 	t.end();
 });
 
 test(`${subject} is not modified when invoking 'insertAfter' with a mark that is not a node thereof` ,t => {
+	const tryFail = orderHelper(t);
+
 	const l = init();
 
 	l.pushBack(1);
 	l.pushBack(2);
 	l.pushBack(3);
 	l.insertAfter(1, new ForwardNode(9));
-	checkList(l, [1, 2, 3]);
+	tryFail(l, [1, 2, 3]);
 
 	t.end();
 });
 
 test(`${subject} is not modified when invoking 'moveAfter', 'moveBefore' with a mark that is not a node thereof` ,t => {
+	const tryFail = orderHelper(t);
+
 	const l1 = init();
 	const l2 = init();
 
@@ -358,12 +364,12 @@ test(`${subject} is not modified when invoking 'moveAfter', 'moveBefore' with a 
 	const n2 = l2.pushBack(2);
 
 	l1.moveAfter(n1, n2);
-	checkList(l1, [1]);
-	checkList(l2, [2]);
+	tryFail(l1, [1]);
+	tryFail(l2, [2]);
 
 	l1.moveBefore(n1, n2);
-	checkList(l1, [1]);
-	checkList(l2, [2]);
+	tryFail(l1, [1]);
+	tryFail(l2, [2]);
 
 	t.end();
 });
@@ -389,10 +395,8 @@ test(`${subject} is not modified when operations are invoked on an empty list`, 
 });
 
 test(`${subject} maintains integrity when operating upon a single-node list`, t => {
-	const tryFail = (t => (...args) => {
-		try { checkListRefs(...args); }
-		catch (msg) { t.fail(msg); }
-	})(t);
+	const tryFail = refHelper(t);
+	const tryFail2 = orderHelper(t);
 
 	const l = init();
 
@@ -407,10 +411,10 @@ test(`${subject} maintains integrity when operating upon a single-node list`, t 
 	tryFail(l2, [n2]);
 
 	l.pushFrontList(l2);
-	checkList(l, [11, 1]);
+	tryFail2(l, [11, 1]);
 
 	l.pushBackList(l2);
-	checkList(l, [11, 1, 11]);
+	tryFail2(l, [11, 1, 11]);
 
 	const l3 = init();
 
@@ -421,10 +425,10 @@ test(`${subject} maintains integrity when operating upon a single-node list`, t 
 	tryFail(l3, [n3]);
 
 	l3.pushBackList(l2);
-	checkList(l3, [11, 1, 11]);
+	tryFail2(l3, [11, 1, 11]);
 
 	l3.pushFrontList(l2);
-	checkList(l3, [11, 1]);
+	tryFail2(l3, [11, 1]);
 
 	t.end();
 });
