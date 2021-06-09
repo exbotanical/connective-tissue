@@ -1,9 +1,0 @@
-{
-  "source": {
-    "includePattern": ".+\\.*.js?$",
-    "excludePattern": ".+\\.(test|spec).js"
-  },
-  "ignore": [
-    "**/*.(test|spec).js"
-  ]
-}

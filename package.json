@@ -23,8 +23,8 @@
     "prerelease": "npm pack && tar -xvzf *.tgz && rimraf package *.tgz",
     "semantic-release": "semantic-release",
     "test": "tape -r 'esm' './__tests__/**/*.test.js'",
-    "test:watch": "nodemon --exec 'npm run test'",
-    "doc": "jsdoc2md --files ./lib/* --configure ./jsdoc2md.json > ./Api.md"
+    "test:watch": "nodemon --exec 'yarn test'",
+    "doc": "jsdoc2md -d 1 --plugin dmd-readable -t README.hbs --files ./lib/* > README.md"
   },
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "license": "MIT",
@@ -35,8 +35,8 @@
   },
   "lint-staged": {
     "lib/**/*.js": [
-      "npm run lint",
-      "npm run test"
+      "yarn lint",
+      "yarn test"
     ]
   },
   "husky": {
@@ -63,11 +63,13 @@
     "@rollup/plugin-node-resolve": "11.2.0",
     "core-js": "3.9.1",
     "cz-conventional-changelog": "3.3.0",
+    "dmd-readable": "1.2.4",
     "eslint": "7.28.0",
     "esm": "3.2.25",
     "husky": "4.3.8",
     "jsdoc-to-markdown": "7.0.1",
     "lint-staged": "10.5.4",
+    "minami": "1.2.3",
     "nodemon": "2.0.7",
     "rimraf": "3.0.2",
     "rollup": "2.40.0",
