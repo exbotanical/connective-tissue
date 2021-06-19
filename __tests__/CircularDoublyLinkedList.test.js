@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { CircularDoublyLinkedList } from '../lib';
+import { CircularDoublyLinkedList, CircularSinglyLinkedList } from '../lib';
 import { Node } from '../lib/Atomics';
 
 const subject = 'The circular doubly linked list';
@@ -309,6 +309,16 @@ test(`${subject} is not modified when invoking 'moveAfter', 'moveBefore' with a 
 	l1.moveBefore(n1, n2);
 	tryFail(l1, [1]);
 	tryFail(l2, [2]);
+
+	t.end();
+});
+
+test(`${subject} throws an error if provided a list of a different type`, t => {
+	const l = init();
+	const l2 = new CircularSinglyLinkedList();
+
+	t.throws(() => l.pushBackList(l2));
+	t.throws(() => l.pushFrontList(l2));
 
 	t.end();
 });

@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { CircularSinglyLinkedList } from '../lib';
+import { CircularSinglyLinkedList, CircularDoublyLinkedList } from '../lib';
 import { ForwardNode } from '../lib/Atomics';
 
 const subject = 'The circular singly linked list';
@@ -429,6 +429,16 @@ test(`${subject} maintains integrity when operating upon a single-node list`, t 
 
 	l3.pushFrontList(l2);
 	tryFail2(l3, [11, 1]);
+
+	t.end();
+});
+
+test(`${subject} throws an error if provided a list of a different type`, t => {
+	const l = init();
+	const l2 = new CircularDoublyLinkedList();
+
+	t.throws(() => l.pushBackList(l2));
+	t.throws(() => l.pushFrontList(l2));
 
 	t.end();
 });
