@@ -4,7 +4,7 @@
 
 ## SinglyLinkedList.head property
 
-The head node
+The head node. The head is initialized to null; you must insert a node to initially populate the list.
 
 <b>Signature:</b>
 

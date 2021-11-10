@@ -18,7 +18,7 @@ export class SinglyLinkedList<T> {
 	/**
 	 * The current size of the list
 	 *
-	 * @private
+	 * @internal
 	 */
 	private length;
 

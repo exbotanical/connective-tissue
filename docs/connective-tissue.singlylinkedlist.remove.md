@@ -16,9 +16,9 @@ remove(node: IForwardNode<T, SinglyLinkedList<T>>): IForwardNode<T, SinglyLinked
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; |  |
+|  node | IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

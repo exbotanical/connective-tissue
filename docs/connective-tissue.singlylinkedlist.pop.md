@@ -13,5 +13,5 @@ pop(): IForwardNode<T, SinglyLinkedList<T>> | null;
 ```
 <b>Returns:</b>
 
-IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

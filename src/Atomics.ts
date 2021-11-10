@@ -18,7 +18,7 @@ export function Node<D, L>(value: D): INode<D, L> {
 
 /**
  * Implements a uni-directional (forward) node.
- * ForwardNode` implements as a member a pointer to the list to which it belongs
+ * `ForwardNode` implements as a member a pointer to the list to which it belongs
  *
  * @param value - A value with which to instantiate the node
  * @public
@@ -33,7 +33,6 @@ export function ForwardNode<D, L>(value: D): IForwardNode<D, L> {
 
 /**
  * Implements a ring data structure for terminating a bi-directional list
- *
  * @public
  */
 export function Sentinel(): ISentinel {

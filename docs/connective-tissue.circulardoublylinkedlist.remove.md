@@ -16,9 +16,9 @@ remove(node: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLink
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
+|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt;
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
 

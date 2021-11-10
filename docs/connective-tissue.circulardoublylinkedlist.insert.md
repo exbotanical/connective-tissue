@@ -16,10 +16,10 @@ insert(node: INode<T, CircularDoublyLinkedList<T>>, at: INode<T, CircularDoublyL
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
-|  at | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| ISentinel |  |
+|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to insert into the list |
+|  at | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| ISentinel | A node in the list after which <code>node</code> will be inserted |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt;
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
 

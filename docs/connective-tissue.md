@@ -9,14 +9,14 @@
 |  Class | Description |
 |  --- | --- |
 |  [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md) | Implements a circular doubly linked list as a ring, such that the sentinel node is both the next node of the tail, and the previous node of the head |
-|  [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md) | Implements a circular singly (linear) linked list<!-- -->Note we cannot null-terminate this list, as that would violate the circular list contract |
-|  [SinglyLinkedList](./connective-tissue.singlylinkedlist.md) | Implements a singly linked list |
+|  [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md) | Implements a circular singly (linear) linked list. |
+|  [SinglyLinkedList](./connective-tissue.singlylinkedlist.md) | Implements a singly linked list. Optionally pass a type to define the shape of node data i.e. node member <code>value</code>. |
 
 ## Functions
 
 |  Function | Description |
 |  --- | --- |
-|  [ForwardNode(value)](./connective-tissue.forwardnode.md) | Implements a uni-directional (forward) node<code>ForwardNode</code> implements as a member a pointer to the list to which it belongs |
-|  [Node(value)](./connective-tissue.node.md) | Implements a bi-directional node<code>Node</code> implements as a member a pointer to the list to which it belongs |
+|  [ForwardNode(value)](./connective-tissue.forwardnode.md) | Implements a uni-directional (forward) node. <code>ForwardNode</code> implements as a member a pointer to the list to which it belongs |
+|  [Node(value)](./connective-tissue.node.md) | Implements a bi-directional node. <code>Node</code> implements as a member a pointer to the list to which it belongs |
 |  [Sentinel()](./connective-tissue.sentinel.md) | Implements a ring data structure for terminating a bi-directional list |
 

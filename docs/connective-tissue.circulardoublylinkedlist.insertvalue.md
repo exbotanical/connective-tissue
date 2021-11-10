@@ -16,10 +16,10 @@ insertValue(value: T, at: INode<T, CircularDoublyLinkedList<T>> | ISentinel): IN
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
-|  at | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| ISentinel |  |
+|  value | T | The value with which to instantiate the inserted node |
+|  at | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| ISentinel | A node in the list before which to move <code>node</code> |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt;
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
 

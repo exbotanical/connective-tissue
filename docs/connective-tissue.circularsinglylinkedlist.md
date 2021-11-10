@@ -4,14 +4,12 @@
 
 ## CircularSinglyLinkedList class
 
-Implements a circular singly (linear) linked list
-
-Note we cannot null-terminate this list, as that would violate the circular list contract
+Implements a circular singly (linear) linked list.
 
 <b>Signature:</b>
 
 ```typescript
-declare class CircularSinglyLinkedList<T> 
+export declare class CircularSinglyLinkedList<T> 
 ```
 
 ## Constructors
@@ -24,25 +22,25 @@ declare class CircularSinglyLinkedList<T>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [head](./connective-tissue.circularsinglylinkedlist.head.md) |  | IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt; \| null | The head node; implemented internally as a ring |
+|  [head](./connective-tissue.circularsinglylinkedlist.head.md) |  | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null | The head node; implemented internally as a ring. The head is initialized to null; you must insert a node to initially populate the list. |
 
 ## Methods
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
 |  [create()](./connective-tissue.circularsinglylinkedlist.create.md) | <code>static</code> | Instantiate an empty circular singly linked list |
-|  [insertAfter(value, mark)](./connective-tissue.circularsinglylinkedlist.insertafter.md) |  | Insert a new node with value <code>value</code> immediately after <code>mark</code>If <code>mark</code> is not an element of the list, the list is not modified<code>mark</code> must not be null |
-|  [insertBefore(value, mark)](./connective-tissue.circularsinglylinkedlist.insertbefore.md) |  | Insert a new node with value <code>value</code> immediately before <code>mark</code>If <code>mark</code> is not an element of the list, the list is not modified<code>mark</code> must not be null |
-|  [moveAfter(node, mark)](./connective-tissue.circularsinglylinkedlist.moveafter.md) |  | Move a given node to its new position after <code>mark</code>If either the given node or mark are not an element of the list; node == mark; or mark.next == node, the list is not modified<!-- -->Both the node and mark must not be null |
-|  [moveBefore(node, mark)](./connective-tissue.circularsinglylinkedlist.movebefore.md) |  | Move a given node to its new position before <code>mark</code>If either the given node or mark are not an element of the list; node == mark; or node.next == mark, the list is not modified<!-- -->Both the node and mark must not be null |
+|  [insertAfter(value, mark)](./connective-tissue.circularsinglylinkedlist.insertafter.md) |  | Insert a new node with value <code>value</code> immediately after <code>mark</code>. If <code>mark</code> is not an element of the list, the list is not modified. <code>mark</code> must not be null. |
+|  [insertBefore(value, mark)](./connective-tissue.circularsinglylinkedlist.insertbefore.md) |  | Insert a new node with value <code>value</code> immediately before <code>mark</code>. If <code>mark</code> is not an element of the list, the list is not modified. <code>mark</code> must not be null. |
+|  [moveAfter(node, mark)](./connective-tissue.circularsinglylinkedlist.moveafter.md) |  | Move a given node to its new position after <code>mark</code>. If either the given node or mark are not an element of the list, or node == mark, the list is not modified. Both the node and mark must not be null. |
+|  [moveBefore(node, mark)](./connective-tissue.circularsinglylinkedlist.movebefore.md) |  | Move a given node to its new position before <code>mark</code>. If either the given node or mark are not an element of the list, or node == mark, the list is not modified. Both the node and mark must not be null (return value will be null) |
 |  [next(node)](./connective-tissue.circularsinglylinkedlist.next.md) |  | Returns the next list node, if extant; else, null |
 |  [pop()](./connective-tissue.circularsinglylinkedlist.pop.md) |  | Remove the last node from the list |
 |  [prev(node)](./connective-tissue.circularsinglylinkedlist.prev.md) |  | Returns the previous list node, if extant; else, null |
 |  [pushBack(value)](./connective-tissue.circularsinglylinkedlist.pushback.md) |  | Push a new node with value <code>value</code> to the back of the list |
-|  [pushBackList(other)](./connective-tissue.circularsinglylinkedlist.pushbacklist.md) |  | Insert a copy of another list at the back of the caller list<!-- -->The lists may be the same, but must not be null |
+|  [pushBackList(other)](./connective-tissue.circularsinglylinkedlist.pushbacklist.md) |  | Insert a copy of another list at the back of the caller list. The lists may be equivalent, but must not be null. |
 |  [pushFront(value)](./connective-tissue.circularsinglylinkedlist.pushfront.md) |  | Push a new node with value <code>value</code> to the front of the list |
-|  [pushFrontList(other)](./connective-tissue.circularsinglylinkedlist.pushfrontlist.md) |  | Insert a copy of another list at the front of the caller list<!-- -->The lists may be the same, but must not be null |
+|  [pushFrontList(other)](./connective-tissue.circularsinglylinkedlist.pushfrontlist.md) |  | Insert a copy of another list at the front of the caller list. The lists may be the same, but must not be null. |
 |  [remove(node)](./connective-tissue.circularsinglylinkedlist.remove.md) |  | Remove a given node from the list |
 |  [removeHead()](./connective-tissue.circularsinglylinkedlist.removehead.md) |  | Excise the head of the list and return it; if the head is not extant, return null |
-|  [size()](./connective-tissue.circularsinglylinkedlist.size.md) |  | The current size of the list |
+|  [size()](./connective-tissue.circularsinglylinkedlist.size.md) |  | The current size of the list. This property does not account for a quasi-uninitialized head node. |
 

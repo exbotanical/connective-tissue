@@ -13,5 +13,5 @@ static create(): CircularSinglyLinkedList<unknown>;
 ```
 <b>Returns:</b>
 
-CircularSinglyLinkedList&lt;unknown&gt;
+[CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;unknown&gt;
 

@@ -4,7 +4,7 @@
 
 ## SinglyLinkedList.create() method
 
-Instantiate an empty singly linked list
+Instantiate an 'uninitialized' singly linked list
 
 <b>Signature:</b>
 
@@ -13,5 +13,5 @@ static create(): SinglyLinkedList<unknown>;
 ```
 <b>Returns:</b>
 
-SinglyLinkedList&lt;unknown&gt;
+[SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;unknown&gt;
 

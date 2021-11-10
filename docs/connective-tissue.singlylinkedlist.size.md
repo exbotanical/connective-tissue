@@ -4,7 +4,7 @@
 
 ## SinglyLinkedList.size() method
 
-The current size of the list
+The current size of the list. This property does not account for a quasi-uninitialized head node.
 
 <b>Signature:</b>
 

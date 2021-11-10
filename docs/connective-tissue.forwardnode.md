@@ -4,21 +4,19 @@
 
 ## ForwardNode() function
 
-Implements a uni-directional (forward) node
-
-`ForwardNode` implements as a member a pointer to the list to which it belongs
+Implements a uni-directional (forward) node. `ForwardNode` implements as a member a pointer to the list to which it belongs
 
 <b>Signature:</b>
 
 ```typescript
-declare function ForwardNode<D, L>(value: D): IForwardNode<D, L>;
+export declare function ForwardNode<D, L>(value: D): IForwardNode<D, L>;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | D |  |
+|  value | D | A value with which to instantiate the node |
 
 <b>Returns:</b>
 

@@ -4,11 +4,7 @@
 
 ## CircularDoublyLinkedList.moveToBack() method
 
-Move a node to the back of the list
-
-If the given node is not an element of the list, the list is not modified
-
-The given node must not be null
+Move a node to the back of the list If the given node is not an element of the list, the list is not modified The given node must not be null
 
 <b>Signature:</b>
 
@@ -20,7 +16,7 @@ moveToBack(node: INode<T, CircularDoublyLinkedList<T>>): void;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
+|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move to the back thereof |
 
 <b>Returns:</b>
 

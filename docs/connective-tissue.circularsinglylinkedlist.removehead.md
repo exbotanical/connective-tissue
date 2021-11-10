@@ -13,5 +13,5 @@ removeHead(): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```
 <b>Returns:</b>
 
-IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

@@ -4,7 +4,6 @@ import type { IForwardNode } from './types';
 
 /**
  * Implements a circular singly (linear) linked list.
- * Note we cannot null-terminate this list, as that would violate the circular list contract.
  *
  * @public
  */
@@ -18,7 +17,7 @@ export class CircularSinglyLinkedList<T> {
 	/**
 	 * The current size of the list
 	 *
-	 * @private
+	 * @internal
 	 */
 	private length;
 
@@ -64,7 +63,7 @@ export class CircularSinglyLinkedList<T> {
 	/**
 	 * Move given node *after* `at`, where `node` and `at` must be a member of the list
 	 *
-	 * @private
+	 * @internal
 	 */
 	private move(
 		node: IForwardNode<T, CircularSinglyLinkedList<T>>,
@@ -425,7 +424,7 @@ export class CircularSinglyLinkedList<T> {
 	/**
 	 * Insert a copy of another list at the back of the caller list.
 	 * The lists may be equivalent, but must not be null.
-	 * @throws {TypeError} Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
+	 * @throws Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
 	 */
 	pushBackList(other: this) {
 		if (!other || !other.head) {
@@ -457,7 +456,7 @@ export class CircularSinglyLinkedList<T> {
 	/**
 	 * Insert a copy of another list at the front of the caller list.
 	 * The lists may be the same, but must not be null.
-	 * @throws {TypeError} Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
+	 * @throws Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
 	 */
 	pushFrontList(other: this) {
 		if (!other || !other.head) {

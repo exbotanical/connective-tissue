@@ -16,10 +16,10 @@ move(node: INode<T, CircularDoublyLinkedList<T>>, at: INode<T, CircularDoublyLin
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
-|  at | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| ISentinel |  |
+|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move |
+|  at | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| ISentinel | A node in the list after which to move <code>node</code> |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| null
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

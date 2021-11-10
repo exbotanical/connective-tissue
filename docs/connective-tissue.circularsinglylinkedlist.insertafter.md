@@ -4,11 +4,7 @@
 
 ## CircularSinglyLinkedList.insertAfter() method
 
-Insert a new node with value `value` immediately after `mark`
-
-If `mark` is not an element of the list, the list is not modified
-
-`mark` must not be null
+Insert a new node with value `value` immediately after `mark`<!-- -->. If `mark` is not an element of the list, the list is not modified. `mark` must not be null.
 
 <b>Signature:</b>
 
@@ -20,10 +16,10 @@ insertAfter(value: T, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForw
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
-|  mark | IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt; |  |
+|  value | T | The value with which to instantiate the inserted node |
+|  mark | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list before which to insert the new node |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

@@ -4,7 +4,7 @@
 
 ## CircularSinglyLinkedList.head property
 
-The head node; implemented internally as a ring
+The head node; implemented internally as a ring. The head is initialized to null; you must insert a node to initially populate the list.
 
 <b>Signature:</b>
 

@@ -4,11 +4,7 @@
 
 ## CircularDoublyLinkedList.insertBefore() method
 
-Insert a new node with value `value` immediately before `mark`
-
-If `mark` is not an element of the list, the list is not modified
-
-`mark` must not be null
+Insert a new node with value `value` immediately before `mark`<!-- -->. If `mark` is not an element of the list, the list is not modified. `mark` must not be null.
 
 <b>Signature:</b>
 
@@ -20,10 +16,10 @@ insertBefore(value: T, mark: INode<T, CircularDoublyLinkedList<T>>): INode<T, Ci
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
-|  mark | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
+|  value | T | The value with which to instantiate the inserted node |
+|  mark | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list before which to insert the new node |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| null
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

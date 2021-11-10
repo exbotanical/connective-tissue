@@ -13,5 +13,5 @@ static create(): CircularDoublyLinkedList<unknown>;
 ```
 <b>Returns:</b>
 
-CircularDoublyLinkedList&lt;unknown&gt;
+[CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;unknown&gt;
 

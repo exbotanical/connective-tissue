@@ -16,9 +16,9 @@ pushBack(value: T): IForwardNode<T, SinglyLinkedList<T>>;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
+|  value | T | Push to the back of the list a node with the given value <code>value</code> |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt;
+IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt;
 

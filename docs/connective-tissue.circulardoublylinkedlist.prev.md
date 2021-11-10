@@ -16,9 +16,9 @@ prev(node: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinked
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
+|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the previous node relative to the given node. |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| null
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

@@ -9,7 +9,7 @@ Implements a ring data structure for terminating a bi-directional list
 <b>Signature:</b>
 
 ```typescript
-declare function Sentinel(): ISentinel;
+export declare function Sentinel(): ISentinel;
 ```
 <b>Returns:</b>
 

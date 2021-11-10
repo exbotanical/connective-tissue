@@ -14,8 +14,8 @@ export class CircularDoublyLinkedList<T> {
     insertBefore(value: T, mark: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinkedList<T>> | null;
     insertValue(value: T, at: INode<T, CircularDoublyLinkedList<T>> | ISentinel): INode<T, CircularDoublyLinkedList<T>>;
     move(node: INode<T, CircularDoublyLinkedList<T>>, at: INode<T, CircularDoublyLinkedList<T>> | ISentinel): INode<T, CircularDoublyLinkedList<T>> | null;
-    moveAfter(node: INode<T, CircularDoublyLinkedList<T>>, mark: INode<T, CircularDoublyLinkedList<T>>): void;
-    moveBefore(node: INode<T, CircularDoublyLinkedList<T>>, mark: INode<T, CircularDoublyLinkedList<T>>): void;
+    moveAfter(node: INode<T, CircularDoublyLinkedList<T>>, mark: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinkedList<T>> | null;
+    moveBefore(node: INode<T, CircularDoublyLinkedList<T>>, mark: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinkedList<T>> | null;
     moveToBack(node: INode<T, CircularDoublyLinkedList<T>>): void;
     moveToFront(node: INode<T, CircularDoublyLinkedList<T>>): void;
     // Warning: (ae-forgotten-export) The symbol "INode" needs to be exported by the entry point index.d.ts
@@ -41,8 +41,8 @@ export class CircularSinglyLinkedList<T> {
     head: IForwardNode<T, CircularSinglyLinkedList<T>> | null;
     insertAfter(value: T, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
     insertBefore(value: T, mark?: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
-    moveAfter(node: IForwardNode<T, CircularSinglyLinkedList<T>>, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): void;
-    moveBefore(node: IForwardNode<T, CircularSinglyLinkedList<T>>, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): void;
+    moveAfter(node: IForwardNode<T, CircularSinglyLinkedList<T>>, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+    moveBefore(node: IForwardNode<T, CircularSinglyLinkedList<T>>, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
     next(node: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
     pop(): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
     prev(node: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;

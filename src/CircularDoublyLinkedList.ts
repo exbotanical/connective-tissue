@@ -17,7 +17,7 @@ export class CircularDoublyLinkedList<T> {
 	/**
 	 * The list length, sans the sentinel terminator
 	 *
-	 * @private
+	 * @internal
 	 */
 	private length;
 
@@ -267,10 +267,9 @@ export class CircularDoublyLinkedList<T> {
 	}
 
 	/**
-	 * Move a node to the back of the list.
-	 * If the given node is not an element of the list, the list is not modified.
-	 * The given node must not be null.
-	 *
+	 * Move a node to the back of the list
+	 * If the given node is not an element of the list, the list is not modified
+	 * The given node must not be null
 	 * @param node - A node in the list to move to the back thereof
 	 */
 	moveToBack(node: INode<T, CircularDoublyLinkedList<T>>) {
@@ -340,7 +339,7 @@ export class CircularDoublyLinkedList<T> {
 	/**
 	 * Insert a copy of another list at the back of the caller list.
 	 * The lists may be equivalent, but must not be null.
-	 * @throws {TypeError} Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
+	 * @throws Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
 	 */
 	pushBackList(other: this) {
 		if (!this.sentinel.next) {
@@ -365,7 +364,7 @@ export class CircularDoublyLinkedList<T> {
 	/**
 	 * Insert a copy of another list at the front of the caller list.
 	 * The lists may be the same, but must not be null.
-	 * @throws {TypeError} Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
+	 * @throws Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
 	 */
 	pushFrontList(other: this) {
 		if (!this.sentinel.next) {

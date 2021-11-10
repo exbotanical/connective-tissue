@@ -16,9 +16,9 @@ prev(node: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, Circul
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt; |  |
+|  node | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the previous node relative to the given node. |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

@@ -4,9 +4,7 @@
 
 ## CircularSinglyLinkedList.pushFrontList() method
 
-Insert a copy of another list at the front of the caller list
-
-The lists may be the same, but must not be null
+Insert a copy of another list at the front of the caller list. The lists may be the same, but must not be null.
 
 <b>Signature:</b>
 
@@ -26,5 +24,5 @@ void
 
 ## Exceptions
 
-{<!-- -->TypeError<!-- -->} Throws if provided a list that is not an instance of `CircularSinglyLinkedList`
+Throws if provided a list that is not an instance of `CircularDoublyLinkedList`
 

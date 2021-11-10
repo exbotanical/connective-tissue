@@ -4,21 +4,19 @@
 
 ## Node() function
 
-Implements a bi-directional node
-
-`Node` implements as a member a pointer to the list to which it belongs
+Implements a bi-directional node. `Node` implements as a member a pointer to the list to which it belongs
 
 <b>Signature:</b>
 
 ```typescript
-declare function Node<D, L>(value: D): INode<D, L>;
+export declare function Node<D, L>(value: D): INode<D, L>;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | D |  |
+|  value | D | A value with which to instantiate the node |
 
 <b>Returns:</b>
 

@@ -16,9 +16,9 @@ pushFront(value: T): INode<T, CircularDoublyLinkedList<T>>;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
+|  value | T | Push to the front of the list a node with the given value <code>value</code> |
 
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt;
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
 

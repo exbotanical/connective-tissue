@@ -16,9 +16,9 @@ pushFront(value: T): IForwardNode<T, CircularSinglyLinkedList<T>>;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
+|  value | T | Push to the front of the list a node with the given value <code>value</code> |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, CircularSinglyLinkedList&lt;T&gt;&gt;
+IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt;
 

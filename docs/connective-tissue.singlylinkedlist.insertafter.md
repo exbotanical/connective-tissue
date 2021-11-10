@@ -4,11 +4,7 @@
 
 ## SinglyLinkedList.insertAfter() method
 
-Insert a new node with value `value` immediately after `mark`
-
-If `mark` is not an element of the list, the list is not modified
-
-`mark` must not be null
+Insert a new node with value `value` immediately after `mark`<!-- -->. If `mark` is not an element of the list, the list is not modified. `mark` must not be null.
 
 <b>Signature:</b>
 
@@ -20,10 +16,10 @@ insertAfter(value: T, mark: IForwardNode<T, SinglyLinkedList<T>>): IForwardNode<
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  value | T |  |
-|  mark | IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; |  |
+|  value | T | A value to store in the inserted node |
+|  mark | IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; | The node after which the newly created node will be inserted |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

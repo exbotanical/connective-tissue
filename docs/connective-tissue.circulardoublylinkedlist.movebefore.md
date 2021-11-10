@@ -4,26 +4,22 @@
 
 ## CircularDoublyLinkedList.moveBefore() method
 
-Move a given node to its new position before `mark`
-
-If either the given node or mark are not an element of the list, or node == mark, the list is not modified
-
-Both the node and mark must not be null
+Move a given node to its new position before `mark`<!-- -->. If either the given node or mark are not an element of the list, or node == mark, the list is not modified. Both the node and mark must not be null (return value will be null)
 
 <b>Signature:</b>
 
 ```typescript
-moveBefore(node: INode<T, CircularDoublyLinkedList<T>>, mark: INode<T, CircularDoublyLinkedList<T>>): void;
+moveBefore(node: INode<T, CircularDoublyLinkedList<T>>, mark: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
-|  mark | INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; |  |
+|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move |
+|  mark | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list before which to move <code>node</code> |
 
 <b>Returns:</b>
 
-void
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

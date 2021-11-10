@@ -4,7 +4,7 @@
 
 ## SinglyLinkedList.next() method
 
-Returns the next list node, if extant; else, null
+Returns the next node from that given, if extant; else, null
 
 <b>Signature:</b>
 
@@ -16,8 +16,9 @@ next(node?: IForwardNode<T, SinglyLinkedList<T>> | null): IForwardNode<T, Singly
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; \| null |  |
+|  node | IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the next node from the given node. |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, SinglyLinkedList&lt;T&gt;&gt; \| null
+IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
+

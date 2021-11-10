@@ -13,5 +13,5 @@ head(): INode<T, CircularDoublyLinkedList<T>> | null;
 ```
 <b>Returns:</b>
 
-INode&lt;T, CircularDoublyLinkedList&lt;T&gt;&gt; \| null
+INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
 

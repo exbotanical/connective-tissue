@@ -3,11 +3,11 @@
   "version": "0.0.0-development",
   "description": "",
   "keywords": [
-		"linked list",
-		"doubly linked list",
-		"data structures",
-		"circular linked list"
-	],
+    "linked list",
+    "doubly linked list",
+    "data structures",
+    "circular linked list"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   "scripts": {
     "build": "pnpm clean && tsc && rollup -c && rimraf .build",
     "clean": "rimraf coverage dist .build tsconfig.tsbuildinfo",
-    "docgen": "tsc && api-extractor run --local && api-documenter markdown -i temp -o docs && rimraf .build",
+    "docgen": "./node_modules/.bin/tsc && api-extractor run --local && api-documenter markdown -i temp -o docs && rimraf .build",
     "lint": "eslint --ext .js,.ts,.json --no-fix .",
     "postinstall": "husky install",
     "prerelease": "npm pack && tar -xvzf *.tgz && rimraf package *.tgz",
