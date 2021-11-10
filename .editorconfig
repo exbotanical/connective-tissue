@@ -1,22 +1,35 @@
 root = true
 
-[*.js]
-indent_style = tab
-indent_size = 2
-trim_trailing_whitespace = true
-insert_final_newline = true
+[*]
+charset = utf-8
 end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-[*.md]
+[*.{ts,tsx,js,jsx,html,vue}]
 indent_style = tab
 indent_size = 2
-trim_trailing_whitespace = true
-insert_final_newline = true
-end_of_line = lf
+
+[*.json]
+indent_style = tab
+indent_size = 2
 
 [*.{sh,bash}]
 indent_style = tab
 indent_size = 2
-trim_trailing_whitespace = true
-insert_final_newline = true
-end_of_line = lf
+
+[*.{css,scss}]
+indent_style = tab
+indent_size = 2
+
+[*.{go}]
+indent_style = tab
+indent_size = 2
+
+[*.{c,h}]
+indent_style = tab
+indent_size = 2
+
+[*.md]
+indent_style = space
+indent_size = 2

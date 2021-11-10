@@ -1,0 +1,21 @@
+{
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+		"composite": true,
+		"rootDir": "src",
+    "declaration": true,
+    "declarationDir": ".build",
+    "emitDeclarationOnly": true,
+    "module": "ESNext",
+    "lib": ["ESNext"],
+    "strict": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+		"noImplicitReturns": true,
+		"types": [],
+		"noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
