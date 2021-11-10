@@ -1,6 +1,8 @@
 # connective-tissue
 
-[![Build Status](https://travis-ci.com/MatthewZito/connective-tissue.svg?branch=master)](https://travis-ci.com/MatthewZito/connective-tissue)
+[![Coverage Status](https://coveralls.io/repos/github/MatthewZito/connective-tissue/badge.svg?branch=master)](https://coveralls.io/github/MatthewZito/connective-tissue?branch=master)
+[![Continuous Deployment](https://github.com/MatthewZito/connective-tissue/actions/workflows/cd.yml/badge.svg)](https://github.com/MatthewZito/connective-tissue/actions/workflows/cd.yml)
+[![Continuous Integration](https://github.com/MatthewZito/connective-tissue/actions/workflows/ci.yml/badge.svg)](https://github.com/MatthewZito/connective-tissue/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/connective-tissue.svg)](https://badge.fury.io/js/connective-tissue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -29,11 +31,15 @@ yarn add connective-tissue
 Commonjs:
 
 ```js
-const { } = require('connective-tissue');
+const { CircularDoublyLinkedList } = require('connective-tissue');
 ```
 
 ESM:
 
 ```js
-import { } from 'connective-tissue';
+import { CircularDoublyLinkedList } from 'connective-tissue';
 ```
+
+## Documentation
+
+See [docs](https://matthewzito.github.io/connective-tissue/)
