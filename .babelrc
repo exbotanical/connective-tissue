@@ -1,14 +1,6 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "shippedProposals": true
-    }]
-  ],
-  "plugins": [
-    ["@babel/plugin-proposal-private-methods"],
-    ["@babel/plugin-proposal-class-properties"],
-    ["@babel/plugin-transform-runtime", {
-      "regenerator": true
-    }]
+    ["@babel/preset-env", { "targets": { "node": 10 } }],
+    "@babel/preset-typescript"
   ]
 }

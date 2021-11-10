@@ -1,100 +1,105 @@
+import path from 'path';
+
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-
-import babelrc from './build/babel.config';
-
+import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
 import pkg from './package.json';
 
+const resolve = (fp) => path.resolve(__dirname, fp);
+
+const inputFileName = 'src/index.ts';
+const moduleName = pkg.name.replace(/^@.*\//, '');
+const author = pkg.author;
+const banner = `
+/**
+ * @license
+ * author: ${author}
+ * ${moduleName} v${pkg.version}
+ * Released under the ${pkg.license} license.
+ */
+`;
+
+const external = [...Object.keys(pkg.dependencies || {})];
+
+const pluginsBase = [
+	typescript({
+		outputToFilesystem: false
+	}),
+	nodeResolve({
+		jsnext: true,
+		browser: true
+	}),
+	commonjs({
+		extensions: ['.js', '.ts']
+	}),
+	babel({
+		babelHelpers: 'bundled',
+		configFile: resolve('.babelrc')
+	})
+];
+
+/* Main Config */
 export default [
-  {
-    /* CommonJS */
-    input: 'lib/index.js',
-    output: {
-      file: pkg.main,
-      format: 'cjs',
-      exports: 'named'
-    },
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      babel({
-        exclude: 'node_modules/**',
-        babelrc: false,
-        presets: [
-          [
-            '@babel/env',
-            {
-							shippedProposals: true,
-              modules: false,
-              useBuiltIns: 'usage',
-              targets: 'maintained node versions'
-            }
-          ]
-        ],
-        comments: true
-      })
-    ]
-  },
-  {
-    /* UMD */
-    input: 'lib/index.js',
-    output: {
-      file: pkg.browser.replace(/\.min.js$/, '.js'),
-      format: 'umd',
-      name: 'connective-tissue'
-    },
-    plugins: [
-      nodeResolve({ browser: true }),
-      commonjs(),
-      babel({
-        exclude: 'node_modules/**',
-        babelrc: false,
-        ...babelrc,
-        babelHelpers: 'runtime',
-        comments: true
-      })
-    ]
-  },
-  {
-    /* Minified UMD */
-    input: 'lib/index.js',
-    output: {
-      file: pkg.browser,
-      format: 'umd',
-      name: 'connective-tissue'
-    },
-    plugins: [
-      nodeResolve({ browser: true }),
-      commonjs(),
-      babel({
-        exclude: 'node_modules/**',
-        babelrc: false,
-        ...babelrc,
-        babelHelpers: 'runtime',
-        comments: true
-      }),
-      terser()
-    ]
-  },
-  {
-    /* ESM */
-    input: 'lib/index.js',
-    output: {
-      file: pkg.module,
-      format: 'es'
-    },
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      babel({
-        exclude: 'node_modules/**',
-        babelrc: false,
-        ...babelrc,
-        babelHelpers: 'runtime',
-        comments: true
-      })
-    ]
-  }
+	/* CommonJS */
+	{
+		input: inputFileName,
+		output: {
+			file: pkg.main,
+			format: 'cjs',
+			exports: 'named',
+			banner
+		},
+		external,
+		plugins: [...pluginsBase]
+	},
+
+	/* UMD */
+	{
+		input: inputFileName,
+		output: {
+			file: pkg.browser,
+			format: 'umd',
+			name: '<project>',
+			banner
+		},
+		plugins: [...pluginsBase]
+	},
+
+	/* Minified UMD */
+	{
+		input: inputFileName,
+		output: {
+			file: pkg.browser.replace(/\.js$/, '.min.js'),
+			format: 'umd',
+			name: '<project>',
+			banner
+		},
+		plugins: [...pluginsBase, terser()]
+	},
+
+	/* ESM */
+	{
+		input: inputFileName,
+		output: {
+			file: pkg.module,
+			format: 'es',
+			exports: 'named',
+			banner
+		},
+		external,
+		plugins: [...pluginsBase]
+	},
+
+	/* Types Declarations */
+	{
+		input: './.build/index.d.ts',
+		output: {
+			file: 'dist/index.d.ts',
+			format: 'es'
+		},
+		plugins: [dts()]
+	}
 ];
