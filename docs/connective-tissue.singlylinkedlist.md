@@ -9,7 +9,7 @@ Implements a singly linked list. Optionally pass a type to define the shape of n
 <b>Signature:</b>
 
 ```typescript
-export declare class SinglyLinkedList<T> 
+export declare class SinglyLinkedList<T>
 ```
 
 ## Constructors
@@ -22,7 +22,7 @@ export declare class SinglyLinkedList<T>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [head](./connective-tissue.singlylinkedlist.head.md) |  | IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null | The head node. The head is initialized to null; you must insert a node to initially populate the list. |
+|  [head](./connective-tissue.singlylinkedlist.head.md) |  | ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null | The head node. The head is initialized to null; you must insert a node to initially populate the list. |
 
 ## Methods
 
@@ -37,4 +37,3 @@ export declare class SinglyLinkedList<T>
 |  [remove(node)](./connective-tissue.singlylinkedlist.remove.md) |  | Remove a given node from the list |
 |  [removeHead()](./connective-tissue.singlylinkedlist.removehead.md) |  | Excise the head of the list and return it; if the head is not extant, return null |
 |  [size()](./connective-tissue.singlylinkedlist.size.md) |  | The current size of the list. This property does not account for a quasi-uninitialized head node. |
-

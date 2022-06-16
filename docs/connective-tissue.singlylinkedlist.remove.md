@@ -9,16 +9,15 @@ Remove a given node from the list
 <b>Signature:</b>
 
 ```typescript
-remove(node: IForwardNode<T, SinglyLinkedList<T>>): IForwardNode<T, SinglyLinkedList<T>> | null;
+remove(node: ForwardNode<T, SinglyLinkedList<T>>): ForwardNode<T, SinglyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
+|  node | ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

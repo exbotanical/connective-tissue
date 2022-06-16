@@ -9,17 +9,16 @@ Move a given node to its new position after `mark`<!-- -->. If either the given 
 <b>Signature:</b>
 
 ```typescript
-moveAfter(node: IForwardNode<T, CircularSinglyLinkedList<T>>, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+moveAfter(node: ForwardNode<T, CircularSinglyLinkedList<T>>, mark: ForwardNode<T, CircularSinglyLinkedList<T>>): ForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move |
-|  mark | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list after which to move <code>node</code> |
+|  node | ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move |
+|  mark | ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list after which to move <code>node</code> |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

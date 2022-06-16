@@ -9,16 +9,15 @@ Move a node to the front of the list. If the given node is not an element of the
 <b>Signature:</b>
 
 ```typescript
-moveToFront(node: INode<T, CircularDoublyLinkedList<T>>): void;
+moveToFront(node: Node<T, CircularDoublyLinkedList<T>>): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move to the front of the list |
+|  node | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move to the front of the list |
 
 <b>Returns:</b>
 
 void
-

@@ -9,7 +9,7 @@ Insert a new node with value `value` immediately after `mark`<!-- -->. If `mark`
 <b>Signature:</b>
 
 ```typescript
-insertAfter(value: T, mark: IForwardNode<T, SinglyLinkedList<T>>): IForwardNode<T, SinglyLinkedList<T>> | null;
+insertAfter(value: T, mark: ForwardNode<T, SinglyLinkedList<T>>): ForwardNode<T, SinglyLinkedList<T>> | null;
 ```
 
 ## Parameters
@@ -17,9 +17,8 @@ insertAfter(value: T, mark: IForwardNode<T, SinglyLinkedList<T>>): IForwardNode<
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  value | T | A value to store in the inserted node |
-|  mark | IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; | The node after which the newly created node will be inserted |
+|  mark | ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; | The node after which the newly created node will be inserted |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

@@ -9,7 +9,7 @@ Implements a circular singly (linear) linked list.
 <b>Signature:</b>
 
 ```typescript
-export declare class CircularSinglyLinkedList<T> 
+export declare class CircularSinglyLinkedList<T>
 ```
 
 ## Constructors
@@ -22,7 +22,7 @@ export declare class CircularSinglyLinkedList<T>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [head](./connective-tissue.circularsinglylinkedlist.head.md) |  | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null | The head node; implemented internally as a ring. The head is initialized to null; you must insert a node to initially populate the list. |
+|  [head](./connective-tissue.circularsinglylinkedlist.head.md) |  | ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null | The head node; implemented internally as a ring. The head is initialized to null; you must insert a node to initially populate the list. |
 
 ## Methods
 
@@ -43,4 +43,3 @@ export declare class CircularSinglyLinkedList<T>
 |  [remove(node)](./connective-tissue.circularsinglylinkedlist.remove.md) |  | Remove a given node from the list |
 |  [removeHead()](./connective-tissue.circularsinglylinkedlist.removehead.md) |  | Excise the head of the list and return it; if the head is not extant, return null |
 |  [size()](./connective-tissue.circularsinglylinkedlist.size.md) |  | The current size of the list. This property does not account for a quasi-uninitialized head node. |
-

@@ -9,9 +9,8 @@ Remove the last node from the list
 <b>Signature:</b>
 
 ```typescript
-pop(): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+pop(): ForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```
 <b>Returns:</b>
 
-IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

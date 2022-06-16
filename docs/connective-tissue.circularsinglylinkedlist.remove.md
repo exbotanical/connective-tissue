@@ -9,16 +9,15 @@ Remove a given node from the list
 <b>Signature:</b>
 
 ```typescript
-remove(node: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+remove(node: ForwardNode<T, CircularSinglyLinkedList<T>>): ForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
+|  node | ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

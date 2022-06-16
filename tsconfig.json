@@ -17,5 +17,9 @@
 		"types": [],
 		"noUnusedLocals": true,
     "noUnusedParameters": true
-  }
+  },
+	"ts-node": {
+    // It is faster to skip typechecking.
+    "transpileOnly": true
+	}
 }

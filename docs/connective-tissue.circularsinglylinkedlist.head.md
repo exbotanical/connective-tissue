@@ -9,5 +9,5 @@ The head node; implemented internally as a ring. The head is initialized to null
 <b>Signature:</b>
 
 ```typescript
-head: IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+head: ForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```

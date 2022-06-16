@@ -9,7 +9,7 @@ Push a new node with value `value` to the front of the list
 <b>Signature:</b>
 
 ```typescript
-pushFront(value: T): IForwardNode<T, SinglyLinkedList<T>>;
+pushFront(value: T): ForwardNode<T, SinglyLinkedList<T>>;
 ```
 
 ## Parameters
@@ -20,5 +20,4 @@ pushFront(value: T): IForwardNode<T, SinglyLinkedList<T>>;
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt;
-
+ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt;

@@ -1,13 +1,44 @@
 import { stringify } from 'flatted';
-import { CircularDoublyLinkedList, CircularSinglyLinkedList } from '../src';
-import { INode, Node } from '../src/Atomics';
+import {
+	CircularDoublyLinkedList,
+	CircularSinglyLinkedList,
+	Node
+} from '../src';
+import type { Node as NodeType } from '../src/types';
+
 import { checkListSize } from './utils';
 
-const subject = 'The circular doubly linked list';
 const init = () => new CircularDoublyLinkedList<any>();
 
 describe('CircularDoublyLinkedList', () => {
-	it(`${subject} maintains its integrity as a single-node list`, () => {
+	it.only('throws an exception when inserting at an invalid node', () => {
+		const l = init();
+
+		l.pushFront(Node(1));
+		const at = l.head();
+
+		at!.next = null;
+
+		// todo message
+		expect(() => l.insert(Node(1), at!)).toThrow();
+	});
+
+	it('throws an exception when inserting at a non-list node', () => {
+		const l = init();
+
+		l.pushFront(Node(1));
+		// todo message
+		expect(() => l.insert(Node(1), Node(1))).toThrow();
+	});
+
+	it('throws an exception when inserting into an empty list', () => {
+		const l = init();
+
+		// todo message
+		expect(() => l.insert(Node(1), Node(1))).toThrow();
+	});
+
+	it(`maintains its integrity as a single-node list`, () => {
 		const l = init();
 
 		assertRefs(l, []);
@@ -26,7 +57,7 @@ describe('CircularDoublyLinkedList', () => {
 		assertRefs(l, []);
 	});
 
-	it(`${subject} maintains its integrity as a multi-node list`, () => {
+	it(`maintains its integrity as a multi-node list`, () => {
 		const l = init();
 
 		let n2 = l.pushFront(2);
@@ -91,7 +122,7 @@ describe('CircularDoublyLinkedList', () => {
 		expect(n3).toBe(x);
 	});
 
-	it(`${subject} should be iterable`, () => {
+	it(`should be iterable`, () => {
 		const n1 = 5;
 		const n2 = 6;
 		const n3 = 12;
@@ -122,7 +153,7 @@ describe('CircularDoublyLinkedList', () => {
 		expect(actual).toBe(expected);
 	});
 
-	it(`${subject} should be extensible`, () => {
+	it(`should be extensible`, () => {
 		const l1 = init();
 		const l2 = init();
 		const l3 = init();
@@ -149,7 +180,7 @@ describe('CircularDoublyLinkedList', () => {
 		assertOrder(l2, [4, 5]);
 	});
 
-	it(`${subject} maintains integrity across varietied removals`, () => {
+	it(`maintains integrity across varietied removals`, () => {
 		const l = init();
 
 		const n1 = l.pushBack(1);
@@ -166,7 +197,7 @@ describe('CircularDoublyLinkedList', () => {
 		assertRefs(l, [n2]);
 	});
 
-	it(`${subject} should not be modified when invoking operations upon non-member nodes`, () => {
+	it(`should not be modified when invoking operations upon non-member nodes`, () => {
 		const l1 = init();
 		const l2 = init();
 
@@ -192,7 +223,7 @@ describe('CircularDoublyLinkedList', () => {
 		}
 	});
 
-	it(`${subject} should maintain integrity across varietied moves`, () => {
+	it(`should maintain integrity across varietied moves`, () => {
 		const l = init();
 
 		let n1 = l.pushBack(1);
@@ -227,7 +258,7 @@ describe('CircularDoublyLinkedList', () => {
 		[n2, n3] = [n3, n2];
 	});
 
-	it(`${subject} should accommodate static initialization`, () => {
+	it(`should accommodate static initialization`, () => {
 		const sl = CircularDoublyLinkedList.create();
 
 		expect(() => {
@@ -235,7 +266,7 @@ describe('CircularDoublyLinkedList', () => {
 		}).not.toThrow();
 	});
 
-	it(`${subject} is not modified when invoking 'insertBefore' with a mark that is not a node thereof`, () => {
+	it(`is not modified when invoking 'insertBefore' with a mark that is not a node thereof`, () => {
 		const l = init();
 
 		l.pushBack(1);
@@ -245,7 +276,7 @@ describe('CircularDoublyLinkedList', () => {
 		assertOrder(l, [1, 2, 3]);
 	});
 
-	it(`${subject} is not modified when invoking 'insertAfter' with a mark that is not a node thereof`, () => {
+	it(`is not modified when invoking 'insertAfter' with a mark that is not a node thereof`, () => {
 		const l = init();
 
 		l.pushBack(1);
@@ -255,7 +286,7 @@ describe('CircularDoublyLinkedList', () => {
 		assertOrder(l, [1, 2, 3]);
 	});
 
-	it(`${subject} is not modified when invoking 'moveAfter', 'moveBefore' with a mark that is not a node thereof`, () => {
+	it(`is not modified when invoking 'moveAfter', 'moveBefore' with a mark that is not a node thereof`, () => {
 		const l1 = init();
 		const l2 = init();
 
@@ -271,7 +302,7 @@ describe('CircularDoublyLinkedList', () => {
 		assertOrder(l2, [2]);
 	});
 
-	it(`${subject} throws an error if provided a list of a different type`, () => {
+	it(`throws an error if provided a list of a different type`, () => {
 		const l = init();
 		const l2 = new CircularSinglyLinkedList();
 
@@ -302,7 +333,7 @@ function assertOrder(list: CircularDoublyLinkedList<any>, values: number[]) {
 
 function assertRefs(
 	list: CircularDoublyLinkedList<any>,
-	nodes: INode<any, CircularDoublyLinkedList<any>>[]
+	nodes: NodeType<any, CircularDoublyLinkedList<any>>[]
 ) {
 	const sentinel = list.sentinel;
 

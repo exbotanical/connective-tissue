@@ -9,7 +9,7 @@ Push a new node with value `value` to the back of the list
 <b>Signature:</b>
 
 ```typescript
-pushBack(value: T): IForwardNode<T, CircularSinglyLinkedList<T>>;
+pushBack(value: T): ForwardNode<T, CircularSinglyLinkedList<T>>;
 ```
 
 ## Parameters
@@ -20,5 +20,4 @@ pushBack(value: T): IForwardNode<T, CircularSinglyLinkedList<T>>;
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt;
-
+ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt;

@@ -9,9 +9,8 @@ Excise the head of the list and return it; if the head is not extant, return nul
 <b>Signature:</b>
 
 ```typescript
-removeHead(): IForwardNode<T, SinglyLinkedList<T>> | null;
+removeHead(): ForwardNode<T, SinglyLinkedList<T>> | null;
 ```
 <b>Returns:</b>
 
-IForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [SinglyLinkedList](./connective-tissue.singlylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

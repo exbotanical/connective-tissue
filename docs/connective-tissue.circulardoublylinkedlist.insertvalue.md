@@ -9,7 +9,7 @@ Convenience for inserting a given value into a new node after a given node `at`
 <b>Signature:</b>
 
 ```typescript
-insertValue(value: T, at: INode<T, CircularDoublyLinkedList<T>> | ISentinel): INode<T, CircularDoublyLinkedList<T>>;
+insertValue(value: T, at: Node<T, CircularDoublyLinkedList<T>> | Sentinel): Node<T, CircularDoublyLinkedList<T>>;
 ```
 
 ## Parameters
@@ -17,9 +17,8 @@ insertValue(value: T, at: INode<T, CircularDoublyLinkedList<T>> | ISentinel): IN
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  value | T | The value with which to instantiate the inserted node |
-|  at | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| ISentinel | A node in the list before which to move <code>node</code> |
+|  at | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| Sentinel | A node in the list before which to move <code>node</code> |
 
 <b>Returns:</b>
 
-INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
-
+Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;

@@ -9,17 +9,16 @@ Move given node to `at`
 <b>Signature:</b>
 
 ```typescript
-move(node: INode<T, CircularDoublyLinkedList<T>>, at: INode<T, CircularDoublyLinkedList<T>> | ISentinel): INode<T, CircularDoublyLinkedList<T>> | null;
+move(node: Node<T, CircularDoublyLinkedList<T>>, at: Node<T, CircularDoublyLinkedList<T>> | Sentinel): Node<T, CircularDoublyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move |
-|  at | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| ISentinel | A node in the list after which to move <code>node</code> |
+|  node | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move |
+|  at | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| Sentinel | A node in the list after which to move <code>node</code> |
 
 <b>Returns:</b>
 
-INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

@@ -9,7 +9,7 @@ Insert a new node with value `value` immediately after `mark`<!-- -->. If `mark`
 <b>Signature:</b>
 
 ```typescript
-insertAfter(value: T, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+insertAfter(value: T, mark: ForwardNode<T, CircularSinglyLinkedList<T>>): ForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```
 
 ## Parameters
@@ -17,9 +17,8 @@ insertAfter(value: T, mark: IForwardNode<T, CircularSinglyLinkedList<T>>): IForw
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  value | T | The value with which to instantiate the inserted node |
-|  mark | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list before which to insert the new node |
+|  mark | ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list before which to insert the new node |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

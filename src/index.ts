@@ -1,5 +1,3 @@
-export { CircularSinglyLinkedList } from './CircularSinglyLinkedList';
-export { CircularDoublyLinkedList } from './CircularDoublyLinkedList';
-export { SinglyLinkedList } from './SinglyLinkedList';
+export * from './atomic';
 
-export * from './Atomics';
+export * from './list';

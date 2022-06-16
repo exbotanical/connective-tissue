@@ -9,5 +9,5 @@ The sentinel terminator node
 <b>Signature:</b>
 
 ```typescript
-sentinel: ISentinel;
+sentinel: Sentinel;
 ```

@@ -9,16 +9,15 @@ Remove a given node from the list
 <b>Signature:</b>
 
 ```typescript
-remove(node: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinkedList<T>>;
+remove(node: Node<T, CircularDoublyLinkedList<T>>): Node<T, CircularDoublyLinkedList<T>>;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
+|  node | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node to remove from the list |
 
 <b>Returns:</b>
 
-INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
-
+Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;

@@ -2,9 +2,9 @@ import { stringify } from 'flatted';
 import { SinglyLinkedList } from '../src';
 import { checkListSize } from './utils';
 
-import type { IForwardNode } from '../src/types'; // eslint-disable-line import/order
+import type { ForwardNode } from '../src/types';
 
-type MaybeNode = IForwardNode<any, SinglyLinkedList<any>> | null;
+type MaybeNode = ForwardNode<any, SinglyLinkedList<any>> | null;
 
 const subject = 'The singly linked list';
 const init = () => new SinglyLinkedList<any>();

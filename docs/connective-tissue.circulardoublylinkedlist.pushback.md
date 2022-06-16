@@ -9,7 +9,7 @@ Push a new node with value `value` to the back of the list
 <b>Signature:</b>
 
 ```typescript
-pushBack(value: T): INode<T, CircularDoublyLinkedList<T>>;
+pushBack(value: T): Node<T, CircularDoublyLinkedList<T>>;
 ```
 
 ## Parameters
@@ -20,5 +20,4 @@ pushBack(value: T): INode<T, CircularDoublyLinkedList<T>>;
 
 <b>Returns:</b>
 
-INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;
-
+Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt;

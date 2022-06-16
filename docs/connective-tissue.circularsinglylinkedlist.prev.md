@@ -9,16 +9,15 @@ Returns the previous list node, if extant; else, null
 <b>Signature:</b>
 
 ```typescript
-prev(node: IForwardNode<T, CircularSinglyLinkedList<T>>): IForwardNode<T, CircularSinglyLinkedList<T>> | null;
+prev(node: ForwardNode<T, CircularSinglyLinkedList<T>>): ForwardNode<T, CircularSinglyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the previous node relative to the given node. |
+|  node | ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the previous node relative to the given node. |
 
 <b>Returns:</b>
 
-IForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+ForwardNode&lt;T, [CircularSinglyLinkedList](./connective-tissue.circularsinglylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

@@ -9,7 +9,7 @@ Implements a bi-directional node. `Node` implements as a member a pointer to the
 <b>Signature:</b>
 
 ```typescript
-export declare function Node<D, L>(value: D): INode<D, L>;
+export declare function Node<D, L>(value: D): Node<D, L>;
 ```
 
 ## Parameters
@@ -20,5 +20,4 @@ export declare function Node<D, L>(value: D): INode<D, L>;
 
 <b>Returns:</b>
 
-INode&lt;D, L&gt;
-
+Node&lt;D, L&gt;

@@ -1,4 +1,8 @@
-import type { IForwardNode, ISentinel, INode } from './types';
+import type {
+	ForwardNode as ForwardNodeType,
+	Sentinel as SentinelType,
+	Node as NodeType
+} from '../types';
 
 /**
  * Implements a bi-directional node.
@@ -7,7 +11,7 @@ import type { IForwardNode, ISentinel, INode } from './types';
  * @param value - A value with which to instantiate the node
  * @public
  */
-export function Node<D, L>(value: D): INode<D, L> {
+export function Node<D, L>(value: D): NodeType<D, L> {
 	return {
 		next: null,
 		prev: null,
@@ -23,7 +27,7 @@ export function Node<D, L>(value: D): INode<D, L> {
  * @param value - A value with which to instantiate the node
  * @public
  */
-export function ForwardNode<D, L>(value: D): IForwardNode<D, L> {
+export function ForwardNode<D, L>(value: D): ForwardNodeType<D, L> {
 	return {
 		next: null,
 		list: null,
@@ -35,9 +39,6 @@ export function ForwardNode<D, L>(value: D): IForwardNode<D, L> {
  * Implements a ring data structure for terminating a bi-directional list
  * @public
  */
-export function Sentinel(): ISentinel {
-	return {
-		next: null,
-		prev: null
-	};
+export class Sentinel implements SentinelType {
+	constructor(public next = null, public prev = null) {}
 }

@@ -9,7 +9,7 @@ Implements a circular doubly linked list as a ring, such that the sentinel node 
 <b>Signature:</b>
 
 ```typescript
-export declare class CircularDoublyLinkedList<T> 
+export declare class CircularDoublyLinkedList<T>
 ```
 
 ## Constructors
@@ -22,7 +22,7 @@ export declare class CircularDoublyLinkedList<T>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [sentinel](./connective-tissue.circulardoublylinkedlist.sentinel.md) |  | ISentinel | The sentinel terminator node |
+|  [sentinel](./connective-tissue.circulardoublylinkedlist.sentinel.md) |  | Sentinel | The sentinel terminator node |
 
 ## Methods
 
@@ -49,4 +49,3 @@ export declare class CircularDoublyLinkedList<T>
 |  [remove(node)](./connective-tissue.circulardoublylinkedlist.remove.md) |  | Remove a given node from the list |
 |  [size()](./connective-tissue.circulardoublylinkedlist.size.md) |  | The current size of the list, sans the sentinel node |
 |  [tail()](./connective-tissue.circulardoublylinkedlist.tail.md) |  | Returns the tail node of the list or null if the list is empty |
-

@@ -9,9 +9,8 @@ Returns the head node of the list or null if the list is empty
 <b>Signature:</b>
 
 ```typescript
-head(): INode<T, CircularDoublyLinkedList<T>> | null;
+head(): Node<T, CircularDoublyLinkedList<T>> | null;
 ```
 <b>Returns:</b>
 
-INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

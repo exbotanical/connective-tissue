@@ -9,16 +9,15 @@ Returns the next list node, if extant; else, null
 <b>Signature:</b>
 
 ```typescript
-next(node: INode<T, CircularDoublyLinkedList<T>>): INode<T, CircularDoublyLinkedList<T>> | null;
+next(node: Node<T, CircularDoublyLinkedList<T>>): Node<T, CircularDoublyLinkedList<T>> | null;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the next node from the given node. |
+|  node | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A valid node, which must be a member of this list (return null if the given node is not a member). If this constraint is satisfied, return the next node from the given node. |
 
 <b>Returns:</b>
 
-INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null
-
+Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; \| null

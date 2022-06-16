@@ -9,16 +9,15 @@ Move a node to the back of the list If the given node is not an element of the l
 <b>Signature:</b>
 
 ```typescript
-moveToBack(node: INode<T, CircularDoublyLinkedList<T>>): void;
+moveToBack(node: Node<T, CircularDoublyLinkedList<T>>): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | INode&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move to the back thereof |
+|  node | Node&lt;T, [CircularDoublyLinkedList](./connective-tissue.circulardoublylinkedlist.md)<!-- -->&lt;T&gt;&gt; | A node in the list to move to the back thereof |
 
 <b>Returns:</b>
 
 void
-

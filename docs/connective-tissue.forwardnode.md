@@ -9,7 +9,7 @@ Implements a uni-directional (forward) node. `ForwardNode` implements as a membe
 <b>Signature:</b>
 
 ```typescript
-export declare function ForwardNode<D, L>(value: D): IForwardNode<D, L>;
+export declare function ForwardNode<D, L>(value: D): ForwardNode<D, L>;
 ```
 
 ## Parameters
@@ -20,5 +20,4 @@ export declare function ForwardNode<D, L>(value: D): IForwardNode<D, L>;
 
 <b>Returns:</b>
 
-IForwardNode&lt;D, L&gt;
-
+ForwardNode&lt;D, L&gt;

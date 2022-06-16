@@ -36,7 +36,7 @@
     "prerelease": "npm pack && tar -xvzf *.tgz && rimraf package *.tgz",
     "semantic-release": "semantic-release",
     "test": "jest --bail --coverage __tests__",
-    "test:watch": "jest --watch"
+    "test:dev": "jest --watch"
   },
   "lint-staged": {
     "src/**/*.ts": [
@@ -70,7 +70,7 @@
     "@types/jest": "27.0.2",
     "@typescript-eslint/eslint-plugin": "5.5.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "*",
+    "eslint": "7",
     "eslint-config-prettier": "*",
     "eslint-plugin-jest": "*",
     "flatted": "3.2.4",
@@ -82,7 +82,7 @@
     "rollup-plugin-dts": "4.0.1",
     "rollup-plugin-terser": "7.0.2",
     "semantic-release": "^18.0.0",
-    "typescript": "4.4.4"
+    "typescript": "4.6.3"
   },
   "config": {
     "commitizen": {

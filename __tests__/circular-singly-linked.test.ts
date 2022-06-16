@@ -1,8 +1,11 @@
-import { CircularSinglyLinkedList, CircularDoublyLinkedList } from '../src';
-import { ForwardNode } from '../src/Atomics';
+import {
+	CircularSinglyLinkedList,
+	CircularDoublyLinkedList,
+	ForwardNode
+} from '../src';
 import { checkListSize } from './utils';
 
-import type { IForwardNode } from '../src/types'; // eslint-disable-line import/order
+import type { ForwardNode as ForwardNodeType } from '../src/types'; // eslint-disable-line import/order
 
 const subject = 'The circular singly linked list';
 const init = () => new CircularSinglyLinkedList<any>();
@@ -426,7 +429,7 @@ function assertOrder(list: CircularSinglyLinkedList<any>, values: number[]) {
 
 function assertRefs(
 	list: CircularSinglyLinkedList<any>,
-	nodes: IForwardNode<any, CircularSinglyLinkedList<any>>[]
+	nodes: ForwardNodeType<any, CircularSinglyLinkedList<any>>[]
 ) {
 	if (!checkListSize(list, nodes.length)) {
 		throw Error(`len) Have ${list.size()}, want ${nodes.length}`);
