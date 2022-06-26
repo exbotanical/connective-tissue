@@ -1,41 +1,49 @@
 import { stringify } from 'flatted';
-import {
-	CircularDoublyLinkedList,
-	CircularSinglyLinkedList,
-	Node
-} from '../src';
-import type { Node as NodeType } from '../src/types';
+import { CircularSinglyLinkedList } from '../..';
+import { Node } from '..';
 
-import { checkListSize } from './utils';
+import type { InitializedSentinel, Node as NodeType } from '../../types';
+
+import { CircularDoublyLinkedList } from '.';
+
+interface List {
+	size: () => number;
+}
+
+function checkListSize(list: List, expectedSize: number) {
+	const actualSize = list.size();
+
+	return expectedSize == actualSize;
+}
 
 const init = () => new CircularDoublyLinkedList<any>();
 
 describe('CircularDoublyLinkedList', () => {
-	it.only('throws an exception when inserting at an invalid node', () => {
+	it('throws an exception when inserting at an invalid node', () => {
 		const l = init();
 
-		l.pushFront(Node(1));
+		l.pushFront(new Node(1));
 		const at = l.head();
 
 		at!.next = null;
 
 		// todo message
-		expect(() => l.insert(Node(1), at!)).toThrow();
+		expect(() => l.insert(new Node(1), at!)).toThrow();
 	});
 
 	it('throws an exception when inserting at a non-list node', () => {
 		const l = init();
 
-		l.pushFront(Node(1));
+		l.pushFront(new Node(1));
 		// todo message
-		expect(() => l.insert(Node(1), Node(1))).toThrow();
+		expect(() => l.insert(new Node(1), new Node(1))).toThrow();
 	});
 
 	it('throws an exception when inserting into an empty list', () => {
 		const l = init();
 
 		// todo message
-		expect(() => l.insert(Node(1), Node(1))).toThrow();
+		expect(() => l.insert(new Node(1), new Node(1))).toThrow();
 	});
 
 	it(`maintains its integrity as a single-node list`, () => {
@@ -272,7 +280,7 @@ describe('CircularDoublyLinkedList', () => {
 		l.pushBack(1);
 		l.pushBack(2);
 		l.pushBack(3);
-		l.insertBefore(1, Node(9));
+		l.insertBefore(1, new Node(9));
 		assertOrder(l, [1, 2, 3]);
 	});
 
@@ -282,7 +290,7 @@ describe('CircularDoublyLinkedList', () => {
 		l.pushBack(1);
 		l.pushBack(2);
 		l.pushBack(3);
-		l.insertAfter(1, Node(9));
+		l.insertAfter(1, new Node(9));
 		assertOrder(l, [1, 2, 3]);
 	});
 
@@ -331,10 +339,7 @@ function assertOrder(list: CircularDoublyLinkedList<any>, values: number[]) {
 	}
 }
 
-function assertRefs(
-	list: CircularDoublyLinkedList<any>,
-	nodes: NodeType<any, CircularDoublyLinkedList<any>>[]
-) {
+function assertRefs(list: CircularDoublyLinkedList<any>, nodes: Node<any>[]) {
 	const sentinel = list.sentinel;
 
 	if (!checkListSize(list, nodes.length)) {
@@ -358,8 +363,8 @@ function assertRefs(
 	}
 
 	for (const [idx, node] of nodes.entries()) {
-		let prev = list.sentinel;
-		let next = list.sentinel;
+		let prev: InitializedSentinel<any> | Node<any> | null = list.sentinel;
+		let next: InitializedSentinel<any> | Node<any> | null = list.sentinel;
 
 		if (idx > 0) {
 			prev = nodes[idx - 1];

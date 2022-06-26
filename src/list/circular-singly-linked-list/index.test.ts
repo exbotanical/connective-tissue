@@ -1,11 +1,16 @@
-import {
-	CircularSinglyLinkedList,
-	CircularDoublyLinkedList,
-	ForwardNode
-} from '../src';
-import { checkListSize } from './utils';
+import { CircularDoublyLinkedList } from '../circular-doubly-linked-list';
+import { CircularSinglyLinkedList } from '.';
+import { CircularSinglyLinkedListNode } from '..';
 
-import type { ForwardNode as ForwardNodeType } from '../src/types'; // eslint-disable-line import/order
+interface List {
+	size: () => number;
+}
+
+function checkListSize(list: List, expectedSize: number) {
+	const actualSize = list.size();
+
+	return expectedSize == actualSize;
+}
 
 const subject = 'The circular singly linked list';
 const init = () => new CircularSinglyLinkedList<any>();
@@ -299,7 +304,7 @@ describe('CircularSinglyLinkedList', () => {
 		l.pushBack(1);
 		l.pushBack(2);
 		l.pushBack(3);
-		l.insertBefore(1, ForwardNode(9));
+		l.insertBefore(1, new CircularSinglyLinkedListNode(9));
 		assertOrder(l, [1, 2, 3]);
 	});
 
@@ -309,7 +314,7 @@ describe('CircularSinglyLinkedList', () => {
 		l.pushBack(1);
 		l.pushBack(2);
 		l.pushBack(3);
-		l.insertAfter(1, ForwardNode(9));
+		l.insertAfter(1, new CircularSinglyLinkedListNode(9));
 		assertOrder(l, [1, 2, 3]);
 	});
 
@@ -394,8 +399,7 @@ describe('CircularSinglyLinkedList', () => {
 
 	it(`${subject} throws an error if provided a list of a different type`, () => {
 		const l = init();
-		const l2 = new CircularDoublyLinkedList();
-
+		const l2 = new CircularDoublyLinkedList<any>();
 		// @ts-expect-error
 		expect(() => l.pushBackList(l2)).toThrow();
 		// @ts-expect-error
@@ -429,7 +433,7 @@ function assertOrder(list: CircularSinglyLinkedList<any>, values: number[]) {
 
 function assertRefs(
 	list: CircularSinglyLinkedList<any>,
-	nodes: ForwardNodeType<any, CircularSinglyLinkedList<any>>[]
+	nodes: CircularSinglyLinkedListNode<any>[]
 ) {
 	if (!checkListSize(list, nodes.length)) {
 		throw Error(`len) Have ${list.size()}, want ${nodes.length}`);

@@ -1,13 +1,17 @@
-export interface Node<D, L> {
-	next: Node<D, L> | InitializedSentinel<D, L> | null;
-	prev: Node<D, L> | InitializedSentinel<D, L> | null;
-	list: L | null;
+import { CircularDoublyLinkedList } from './list';
+
+export interface Node<D> {
+	next: Node<D> | InitializedSentinel<D> | null;
 	value: D;
 }
 
-export interface ForwardNode<D, L> {
-	next: ForwardNode<D, L> | null;
-	list: L | null;
+export interface CircularDoublyLinkedListNode<D> extends Node<D> {
+	prev: Node<D> | InitializedSentinel<D> | null;
+	list: CircularDoublyLinkedList<D>;
+}
+
+export interface ForwardNode<D> {
+	next: ForwardNode<D> | null;
 	value: D | null;
 }
 
@@ -16,7 +20,7 @@ export interface Sentinel {
 	prev: Sentinel | null;
 }
 
-export interface InitializedSentinel<D, L> {
-	next: Node<D, L> | InitializedSentinel<D, L>;
-	prev: Node<D, L> | InitializedSentinel<D, L>;
+export interface InitializedSentinel<D> {
+	next: Node<D> | InitializedSentinel<D>;
+	prev: Node<D> | InitializedSentinel<D>;
 }

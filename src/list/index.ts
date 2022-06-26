@@ -1,3 +1,3 @@
-export * from './circular-doubly-linked';
-export * from './circular-singly-linked';
-export * from './singly-linked';
+export * from './circular-doubly-linked-list';
+export * from './circular-singly-linked-list';
+export * from './singly-linked-list';

@@ -1,6 +1,31 @@
-import { Node, Sentinel } from '../atomic';
+export interface InitializedSentinel<T> {
+	next: Node<T> | InitializedSentinel<T>;
+	prev: Node<T> | InitializedSentinel<T>;
+}
 
-import type { InitializedSentinel, Node as NodeType } from '../types';
+/**
+ * Implements a ring data structure for terminating a bi-directional list
+ * @public
+ */
+export class Sentinel {
+	constructor(public next = null, public prev = null) {}
+}
+
+/**
+ * Implements a bi-directional node.
+ * `Node` implements as a member a pointer to the list to which it belongs
+ *
+ * @param value - A value with which to instantiate the node
+ * @public
+ */
+export class Node<T> {
+	constructor(
+		public value: T | null = null,
+		public next: Node<T> | null = null,
+		public prev: Node<T> | null = null,
+		public list: CircularDoublyLinkedList<T> | null = null
+	) {}
+}
 
 /**
  * Implements a circular doubly linked list as a ring, such that
@@ -12,7 +37,7 @@ export class CircularDoublyLinkedList<T> {
 	/**
 	 * The sentinel terminator node.
 	 */
-	sentinel: InitializedSentinel<T, CircularDoublyLinkedList<T>>;
+	sentinel: InitializedSentinel<T>;
 
 	/**
 	 * The list length, sans the sentinel terminator.
@@ -22,10 +47,7 @@ export class CircularDoublyLinkedList<T> {
 	private length;
 
 	constructor() {
-		this.sentinel = new Sentinel() as unknown as InitializedSentinel<
-			T,
-			CircularDoublyLinkedList<T>
-		>;
+		this.sentinel = new Sentinel() as unknown as InitializedSentinel<T>;
 		this.sentinel.next = this.sentinel;
 		this.sentinel.prev = this.sentinel;
 
@@ -52,7 +74,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param node - A valid node, which must be a member of this list (return null if the given node is not a member).
 	 * If this constraint is satisfied, return the next node from the given node.
 	 */
-	next(node: NodeType<T, CircularDoublyLinkedList<T>> | null) {
+	next(node: Node<T> | null) {
 		if (!node) {
 			return null;
 		}
@@ -64,7 +86,7 @@ export class CircularDoublyLinkedList<T> {
 		const p = node.next;
 
 		if (p && node.list != null && p != node.list.sentinel) {
-			return p as NodeType<T, CircularDoublyLinkedList<T>>;
+			return p as Node<T>;
 		}
 
 		return null;
@@ -76,7 +98,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param node - A node, which must be a member of this list (return null if the given node is null or not a member).
 	 * If this constraint is satisfied, return the previous node relative to the given node.
 	 */
-	prev(node: NodeType<T, CircularDoublyLinkedList<T>> | null) {
+	prev(node: Node<T> | null) {
 		if (!node || node.list !== this) {
 			return null;
 		}
@@ -84,7 +106,7 @@ export class CircularDoublyLinkedList<T> {
 		const p = node.prev;
 
 		if (p && node.list != null && p != node.list.sentinel) {
-			return p as NodeType<T, CircularDoublyLinkedList<T>>;
+			return p as Node<T>;
 		}
 
 		return null;
@@ -99,7 +121,7 @@ export class CircularDoublyLinkedList<T> {
 		}
 
 		// we already checked the length; thus, the pointer is an actual node
-		return this.sentinel.next as NodeType<T, CircularDoublyLinkedList<T>>;
+		return this.sentinel.next as Node<T>;
 	}
 
 	/**
@@ -110,7 +132,7 @@ export class CircularDoublyLinkedList<T> {
 			return null;
 		}
 
-		return this.sentinel.prev as NodeType<T, CircularDoublyLinkedList<T>>;
+		return this.sentinel.prev as Node<T>;
 	}
 
 	/**
@@ -119,19 +141,14 @@ export class CircularDoublyLinkedList<T> {
 	 * @param node - A node to insert into the list.
 	 * @param at - A node in the list after which `node` will be inserted.
 	 */
-	insert(
-		node: NodeType<T, CircularDoublyLinkedList<T>>,
-		at:
-			| NodeType<T, CircularDoublyLinkedList<T>>
-			| InitializedSentinel<T, CircularDoublyLinkedList<T>>
-	) {
+	insert(node: Node<T>, at: Node<T>) {
 		// bypass if sentinel, as it is used internally where length is not yet incremented and sentinel does not have a list ref
 		if (at !== this.sentinel) {
 			if (this.length < 1) {
 				throw new Error('Cannot insert into an empty list.');
 			}
 
-			if ((at as NodeType<T, CircularDoublyLinkedList<T>>).list !== this) {
+			if ((at as Node<T>).list !== this) {
 				throw new Error('Provided node `at` is not a member of this list.');
 			}
 		}
@@ -160,7 +177,7 @@ export class CircularDoublyLinkedList<T> {
 	 *
 	 * @param node - A node to remove from the list
 	 */
-	remove(node: NodeType<T, CircularDoublyLinkedList<T>>) {
+	remove(node: Node<T>) {
 		if (node.list === this && node.next && node.prev) {
 			node.prev.next = node.next;
 			node.next.prev = node.prev;
@@ -195,12 +212,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param at - A node in the list after which to move `node`
 	 *
 	 */
-	move(
-		node: NodeType<T, CircularDoublyLinkedList<T>>,
-		at:
-			| NodeType<T, CircularDoublyLinkedList<T>>
-			| InitializedSentinel<T, CircularDoublyLinkedList<T>>
-	) {
+	move(node: Node<T>, at: Node<T>) {
 		if (node.list !== this || !node.prev || !node.next) {
 			return null;
 		}
@@ -254,7 +266,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param value - The value with which to instantiate the inserted node
 	 * @param mark - A node in the list before which to insert the new node
 	 */
-	insertBefore(value: T, mark: NodeType<T, CircularDoublyLinkedList<T>>) {
+	insertBefore(value: T, mark: Node<T>) {
 		if (mark.list !== this || !mark.prev) {
 			return null;
 		}
@@ -270,7 +282,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param value - The value with which to instantiate the inserted node
 	 * @param mark - A node in the list before which to insert the new node
 	 */
-	insertAfter(value: T, mark: NodeType<T, CircularDoublyLinkedList<T>>) {
+	insertAfter(value: T, mark: Node<T>) {
 		if (mark.list !== this) {
 			return null;
 		}
@@ -285,7 +297,7 @@ export class CircularDoublyLinkedList<T> {
 	 *
 	 * @param node - A node in the list to move to the front of the list
 	 */
-	moveToFront(node: NodeType<T, CircularDoublyLinkedList<T>>) {
+	moveToFront(node: Node<T>) {
 		if (node.list !== this || this.sentinel.next === node) {
 			return;
 		}
@@ -299,7 +311,7 @@ export class CircularDoublyLinkedList<T> {
 	 * The given node must not be null
 	 * @param node - A node in the list to move to the back thereof
 	 */
-	moveToBack(node: NodeType<T, CircularDoublyLinkedList<T>>) {
+	moveToBack(node: Node<T>) {
 		if (node.list !== this || this.sentinel.prev === node) {
 			return;
 		}
@@ -315,10 +327,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param node - A node in the list to move
 	 * @param mark - A node in the list before which to move `node`
 	 */
-	moveBefore(
-		node: NodeType<T, CircularDoublyLinkedList<T>>,
-		mark: NodeType<T, CircularDoublyLinkedList<T>>
-	) {
+	moveBefore(node: Node<T>, mark: Node<T>) {
 		if (node.list !== this || mark.list !== this || !mark.prev || !mark.next) {
 			return null;
 		}
@@ -338,10 +347,7 @@ export class CircularDoublyLinkedList<T> {
 	 * @param node - A node in the list to move
 	 * @param mark - A node in the list after which to move `node`
 	 */
-	moveAfter(
-		node: NodeType<T, CircularDoublyLinkedList<T>>,
-		mark: NodeType<T, CircularDoublyLinkedList<T>>
-	) {
+	moveAfter(node: Node<T>, mark: Node<T>) {
 		if (node.list !== this || node === mark || mark.list !== this) {
 			return null;
 		}
@@ -355,13 +361,8 @@ export class CircularDoublyLinkedList<T> {
 	 * @param value - The value with which to instantiate the inserted node
 	 * @param at - A node in the list before which to move `node`
 	 */
-	insertValue(
-		value: T,
-		at:
-			| NodeType<T, CircularDoublyLinkedList<T>>
-			| InitializedSentinel<T, CircularDoublyLinkedList<T>>
-	) {
-		return this.insert(Node(value), at);
+	insertValue(value: T, at: Node<T>): Node<T> {
+		return this.insert(new Node(value), at);
 	}
 
 	/**

@@ -1,6 +1,10 @@
-import { ForwardNode } from '..';
-
-import type { ForwardNode as ForwardNodeType } from '../types';
+export class SinglyLinkedListNode<T> {
+	constructor(
+		public value: T | null = null,
+		public next: SinglyLinkedListNode<T> | null = null,
+		public list: SinglyLinkedList<T> | null = null
+	) {}
+}
 
 /**
  * Implements a singly linked list.
@@ -13,7 +17,7 @@ export class SinglyLinkedList<T> {
 	 * The head node.
 	 * The head is initialized to null; you mustSSS insert a node to initially populate the list.
 	 */
-	head: ForwardNodeType<T, SinglyLinkedList<T>> | null;
+	head: SinglyLinkedListNode<T> | null;
 
 	/**
 	 * The current size of the list
@@ -49,7 +53,7 @@ export class SinglyLinkedList<T> {
 	 * @param node - A valid node, which must be a member of this list (return null if the given node is not a member).
 	 * If this constraint is satisfied, return the next node from the given node.
 	 */
-	next(node?: ForwardNodeType<T, SinglyLinkedList<T>> | null) {
+	next(node?: SinglyLinkedListNode<T> | null) {
 		if (!node || !node.list || node.list !== this) {
 			return null;
 		}
@@ -63,7 +67,7 @@ export class SinglyLinkedList<T> {
 	 * @param value - Push to the front of the list a node with the given value `value`
 	 */
 	pushFront(value: T) {
-		const node = ForwardNode<T, SinglyLinkedList<T>>(value);
+		const node = new SinglyLinkedListNode(value);
 
 		if (!this.head) {
 			node.next = null;
@@ -85,7 +89,7 @@ export class SinglyLinkedList<T> {
 	 * @param value - Push to the back of the list a node with the given value `value`
 	 */
 	pushBack(value: T) {
-		const node = ForwardNode<T, SinglyLinkedList<T>>(value);
+		const node = new SinglyLinkedListNode(value);
 
 		if (!this.head) {
 			this.head = node;
@@ -113,7 +117,7 @@ export class SinglyLinkedList<T> {
 	 * @param value - A value to store in the inserted node
 	 * @param mark - The node after which the newly created node will be inserted
 	 */
-	insertAfter(value: T, mark: ForwardNodeType<T, SinglyLinkedList<T>>) {
+	insertAfter(value: T, mark: SinglyLinkedListNode<T>) {
 		if (!mark) {
 			return null;
 		}
@@ -122,13 +126,13 @@ export class SinglyLinkedList<T> {
 			return null;
 		}
 
-		const node = ForwardNode<T, SinglyLinkedList<T>>(value);
+		const node = new SinglyLinkedListNode(value);
 
 		if (!this.head) {
 			node.next = null;
 			this.head = node;
 		} else {
-			let tmp: ForwardNodeType<T, SinglyLinkedList<T>> | null = this.head;
+			let tmp: SinglyLinkedListNode<T> | null = this.head;
 			while (tmp?.next !== mark.next) {
 				// because we maintain a list ref in each node, *not* finding the mark should never happen...
 				// but we observe the check nonetheless in the case of a weird edge case
@@ -182,7 +186,7 @@ export class SinglyLinkedList<T> {
 		}
 
 		let tmp1 = this.head;
-		let tmp2: ForwardNodeType<T, SinglyLinkedList<T>>;
+		let tmp2: SinglyLinkedListNode<T>;
 
 		if (!tmp1.next) {
 			this.head = null;
@@ -209,7 +213,7 @@ export class SinglyLinkedList<T> {
 	 *
 	 * @param node - A node to remove from the list
 	 */
-	remove(node: ForwardNodeType<T, SinglyLinkedList<T>>) {
+	remove(node: SinglyLinkedListNode<T>) {
 		if (!this.head || !node || node.list !== this || !this.length) {
 			return null;
 		}
@@ -225,7 +229,7 @@ export class SinglyLinkedList<T> {
 
 			while (tmp != node) {
 				prev = tmp;
-				tmp = tmp.next as ForwardNodeType<T, SinglyLinkedList<T>>;
+				tmp = tmp.next as SinglyLinkedListNode<T>;
 			}
 
 			prev!.next = tmp.next;

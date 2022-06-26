@@ -1,5 +1,1 @@
-useTabs: true
-singleQuote: true
-quoteProps: "consistent"
-trailingComma: "none"
-arrowParens: "always"
+"@magister_zito/prettier-config"

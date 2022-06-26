@@ -1,6 +1,10 @@
-import { ForwardNode } from '..';
-
-import type { ForwardNode as ForwardNodeType } from '../types';
+export class CircularSinglyLinkedListNode<T> {
+	constructor(
+		public value: T | null = null,
+		public next: CircularSinglyLinkedListNode<T> | null = null,
+		public list: CircularSinglyLinkedList<T> | null = null
+	) {}
+}
 
 /**
  * Implements a circular singly (linear) linked list.
@@ -12,7 +16,7 @@ export class CircularSinglyLinkedList<T> {
 	 * The head node; implemented internally as a ring.
 	 * The head is initialized to null; you must insert a node to initially populate the list.
 	 */
-	head: ForwardNodeType<T, CircularSinglyLinkedList<T>> | null;
+	head: CircularSinglyLinkedListNode<T> | null;
 
 	/**
 	 * The current size of the list
@@ -30,7 +34,7 @@ export class CircularSinglyLinkedList<T> {
 	/**
 	 * Bootstrap a new head node
 	 */
-	private newHead(node: ForwardNodeType<T, CircularSinglyLinkedList<T>>) {
+	private newHead(node: CircularSinglyLinkedListNode<T>) {
 		this.head = node;
 		node.next = this.head;
 		node.list = this;
@@ -43,9 +47,7 @@ export class CircularSinglyLinkedList<T> {
 	/**
 	 * Find the node prior to the given target
 	 */
-	private findNodeBefore(
-		target: ForwardNodeType<T, CircularSinglyLinkedList<T>>
-	) {
+	private findNodeBefore(target: CircularSinglyLinkedListNode<T>) {
 		let tmp = this.head;
 
 		// we iterate until the `next` pointer points at the target
@@ -68,8 +70,8 @@ export class CircularSinglyLinkedList<T> {
 	 * @internal
 	 */
 	private move(
-		node: ForwardNodeType<T, CircularSinglyLinkedList<T>>,
-		at: ForwardNodeType<T, CircularSinglyLinkedList<T>>
+		node: CircularSinglyLinkedListNode<T>,
+		at: CircularSinglyLinkedListNode<T>
 	) {
 		const tmp = this.findNodeBefore(node);
 
@@ -107,7 +109,7 @@ export class CircularSinglyLinkedList<T> {
 	 * @param node - A valid node, which must be a member of this list (return null if the given node is not a member).
 	 * If this constraint is satisfied, return the next node from the given node.
 	 */
-	next(node: ForwardNodeType<T, CircularSinglyLinkedList<T>>) {
+	next(node: CircularSinglyLinkedListNode<T>) {
 		if (!node || !node.list || node.list !== this) {
 			return null;
 		}
@@ -121,7 +123,7 @@ export class CircularSinglyLinkedList<T> {
 	 * @param node - A valid node, which must be a member of this list (return null if the given node is not a member).
 	 * If this constraint is satisfied, return the previous node relative to the given node.
 	 */
-	prev(node: ForwardNodeType<T, CircularSinglyLinkedList<T>>) {
+	prev(node: CircularSinglyLinkedListNode<T>) {
 		if (!node || !node.list || node.list !== this) {
 			return null;
 		}
@@ -134,7 +136,7 @@ export class CircularSinglyLinkedList<T> {
 	 *
 	 * @param node - A node to remove from the list
 	 */
-	remove(node: ForwardNodeType<T, CircularSinglyLinkedList<T>>) {
+	remove(node: CircularSinglyLinkedListNode<T>) {
 		if (!this.head || !node) {
 			return null;
 		}
@@ -143,8 +145,8 @@ export class CircularSinglyLinkedList<T> {
 			return null;
 		}
 
-		let tmp1: ForwardNodeType<T, CircularSinglyLinkedList<T>> = this.head;
-		let tmp2: ForwardNodeType<T, CircularSinglyLinkedList<T>>;
+		let tmp1: CircularSinglyLinkedListNode<T> = this.head;
+		let tmp2: CircularSinglyLinkedListNode<T>;
 
 		// starting with the head, cycle tmp1 until it matches the node to remove
 		while (tmp1 != node) {
@@ -197,7 +199,7 @@ export class CircularSinglyLinkedList<T> {
 			return null;
 		}
 
-		let tmp1: ForwardNodeType<T, CircularSinglyLinkedList<T>> = this.head;
+		let tmp1: CircularSinglyLinkedListNode<T> = this.head;
 		const tmp2 = this.head;
 
 		// we've a single node list
@@ -257,8 +259,8 @@ export class CircularSinglyLinkedList<T> {
 	 * @param mark - A node in the list after which to move `node`
 	 */
 	moveAfter(
-		node: ForwardNodeType<T, CircularSinglyLinkedList<T>>,
-		mark: ForwardNodeType<T, CircularSinglyLinkedList<T>>
+		node: CircularSinglyLinkedListNode<T>,
+		mark: CircularSinglyLinkedListNode<T>
 	) {
 		if (!node || !mark) {
 			return null;
@@ -284,8 +286,8 @@ export class CircularSinglyLinkedList<T> {
 	 * @param mark - A node in the list before which to move `node`
 	 */
 	moveBefore(
-		node: ForwardNodeType<T, CircularSinglyLinkedList<T>>,
-		mark: ForwardNodeType<T, CircularSinglyLinkedList<T>>
+		node: CircularSinglyLinkedListNode<T>,
+		mark: CircularSinglyLinkedListNode<T>
 	) {
 		if (!node || !mark) {
 			return null;
@@ -310,7 +312,7 @@ export class CircularSinglyLinkedList<T> {
 	 * @param value - Push to the front of the list a node with the given value `value`
 	 */
 	pushFront(value: T) {
-		const node = ForwardNode<T, CircularSinglyLinkedList<T>>(value);
+		const node = new CircularSinglyLinkedListNode(value);
 
 		if (!this.head) {
 			return this.newHead(node);
@@ -334,7 +336,7 @@ export class CircularSinglyLinkedList<T> {
 	 * @param value - Push to the back of the list a node with the given value `value`
 	 */
 	pushBack(value: T) {
-		const node = ForwardNode<T, CircularSinglyLinkedList<T>>(value);
+		const node = new CircularSinglyLinkedListNode(value);
 
 		if (!this.head) {
 			return this.newHead(node);
@@ -363,7 +365,7 @@ export class CircularSinglyLinkedList<T> {
 	 * @param value - The value with which to instantiate the inserted node
 	 * @param mark - A node in the list before which to insert the new node
 	 */
-	insertAfter(value: T, mark: ForwardNodeType<T, CircularSinglyLinkedList<T>>) {
+	insertAfter(value: T, mark: CircularSinglyLinkedListNode<T>) {
 		// this list is circular, thus if a given node does not point to anything,
 		// we can presume its not a member of this list
 		if (!mark || !mark.next) {
@@ -374,7 +376,7 @@ export class CircularSinglyLinkedList<T> {
 			return null;
 		}
 
-		const node = ForwardNode<T, CircularSinglyLinkedList<T>>(value);
+		const node = new CircularSinglyLinkedListNode(value);
 
 		if (!this.head) {
 			return this.newHead(node);
@@ -405,10 +407,7 @@ export class CircularSinglyLinkedList<T> {
 	 * @param value - The value with which to instantiate the inserted node
 	 * @param mark - A node in the list before which to insert the new node
 	 */
-	insertBefore(
-		value: T,
-		mark?: ForwardNodeType<T, CircularSinglyLinkedList<T>>
-	) {
+	insertBefore(value: T, mark?: CircularSinglyLinkedListNode<T>) {
 		if (!mark) {
 			return null;
 		}
@@ -444,7 +443,7 @@ export class CircularSinglyLinkedList<T> {
 
 		for (
 			let i = other.size(),
-				n: ForwardNodeType<T, CircularSinglyLinkedList<T>> | null = other.head;
+				n: CircularSinglyLinkedListNode<T> | null = other.head;
 			i > 0;
 			i--, n = other.next(n)
 		) {

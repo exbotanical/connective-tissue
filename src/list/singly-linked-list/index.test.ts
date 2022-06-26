@@ -1,10 +1,18 @@
 import { stringify } from 'flatted';
-import { SinglyLinkedList } from '../src';
-import { checkListSize } from './utils';
+import { SinglyLinkedList } from '../..';
 
-import type { ForwardNode } from '../src/types';
+import type { SinglyLinkedListNode } from '..';
 
-type MaybeNode = ForwardNode<any, SinglyLinkedList<any>> | null;
+type MaybeNode = SinglyLinkedListNode<any> | null;
+interface List {
+	size: () => number;
+}
+
+function checkListSize(list: List, expectedSize: number) {
+	const actualSize = list.size();
+
+	return expectedSize == actualSize;
+}
 
 const subject = 'The singly linked list';
 const init = () => new SinglyLinkedList<any>();

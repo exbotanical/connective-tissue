@@ -2,21 +2,23 @@
   "include": [
     "src"
   ],
+	"exclude": ["*.test.ts"],
   "compilerOptions": {
-		"composite": true,
 		"rootDir": "src",
     "declaration": true,
     "declarationDir": ".build",
     "emitDeclarationOnly": true,
     "module": "ESNext",
+    "target": "ES5",
     "lib": ["ESNext"],
     "strict": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
 		"noImplicitReturns": true,
-		"types": [],
+		"types": ["node", "vitest/globals"],
 		"noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+		"downlevelIteration": true
   },
 	"ts-node": {
     // It is faster to skip typechecking.
