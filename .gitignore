@@ -120,3 +120,4 @@ dist
 .pnp.*
 
 temp
+dev.test.ts

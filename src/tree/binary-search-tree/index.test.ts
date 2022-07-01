@@ -1,4 +1,4 @@
-import { BinarySearchTree, TreeNode } from '.'
+import { BinarySearchTree } from '.'
 
 describe('binary search tree', () => {
   it('searches for and finds a given value', () => {
