@@ -1,58 +1,58 @@
-class CircularQueue<T> {
-	length = 0;
-	head = 0;
-	tail = -1;
-	state: (T | null)[] = [];
+export class CircularQueue<T> {
+  length = 0
+  head = 0
+  tail = -1
+  state: (T | null)[] = []
 
-	constructor(private size: number) {}
+  constructor(private size: number) {}
 
-	enqueue(value: T) {
-		if (this.isFull()) {
-			return false;
-		}
+  get front() {
+    if (this.isEmpty()) {
+      return null
+    }
 
-		this.tail++;
-		this.state[this.tail % this.size] = value;
-		this.length++;
+    return this.state[this.head % this.size]
+  }
 
-		return true;
-	}
+  get back() {
+    if (this.isEmpty()) {
+      return null
+    }
 
-	deQueue() {
-		if (this.isEmpty()) {
-			return false;
-		}
+    return this.state[this.tail % this.size]
+  }
 
-		const value = this.front();
+  enqueue(value: T) {
+    if (this.isFull()) {
+      return false
+    }
 
-		this.state[this.head % this.size] = null;
-		this.head++;
-		this.length--;
+    this.tail++
+    this.state[this.tail % this.size] = value
+    this.length++
 
-		return value;
-	}
+    return true
+  }
 
-	front() {
-		if (this.isEmpty()) {
-			return -1;
-		}
+  dequeue() {
+    if (this.isEmpty()) {
+      return null
+    }
 
-		return this.state[this.head % this.size];
-	}
+    const value = this.front
 
-	rear() {
-		if (this.isEmpty()) {
-			return -1;
-		}
+    this.state[this.head % this.size] = null
+    this.head++
+    this.length--
 
-		return this.state[this.tail % this.size];
-	}
+    return value
+  }
 
-	isEmpty() {
-		return this.length === 0;
-	}
+  isEmpty() {
+    return this.length === 0
+  }
 
-	isFull() {
-		return this.length === this.size;
-	}
+  isFull() {
+    return this.length === this.size
+  }
 }
